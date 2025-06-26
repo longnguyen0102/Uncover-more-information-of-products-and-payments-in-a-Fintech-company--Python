@@ -1,7 +1,7 @@
 # Data wrangling - Fintech - Python
 
 Please check the coding file or access via the link below:  
-https://colab.research.google.com/drive/1bqe2NRXETMsebmrjdtP1TmfiAxG1UJj5?usp=sharinghttps://colab.research.google.com/drive/1bqe2NRXETMsebmrjdtP1TmfiAxG1UJj5?usp=sharing  
+https://colab.research.google.com/drive/1507TAku0hhjmkd88r-9rUP9ATtvzsPEC?authuser=1     
 
 Author: Nguyễn Hải Long  
 Date: 2025-04  
@@ -78,7 +78,31 @@ Table 3: transactions
 
 ## ⚒️ Main Process
 
+### 1️⃣ EDA
+#### Import libraries and dataset, copy dataset:
+```
+# import libraries
+import pandas as pd
+import numpy as np
+from google.colab import drive
 
+# import csv files
+from google.colab import drive
+drive.mount('/content/drive')
+
+path_payment_report = '/content/drive/MyDrive/DAC K34/Python/Project_2/payment_report.csv'
+path_product = '/content/drive/MyDrive/DAC K34/Python/Project_2/product.csv'
+path_transactions = '/content/drive/MyDrive/DAC K34/Python/Project_2/transactions.csv'
+
+payment_report = pd.read_csv(path_payment_report)
+product = pd.read_csv(path_product)
+transactions = pd.read_csv(path_transactions)
+
+# copy dataset
+df_payment_report = payment_report
+df_product = product
+df_transactions = transactions
+```
 
 ## 📌 Key Takeaways:  
 ✔️ Understanding the basics of SQL query.  

@@ -1,6 +1,6 @@
 # Data wrangling - Fintech - Python
 
-Please check the coding file or access via the link below:  
+Please check the coding below or access via the link below:  
 https://colab.research.google.com/drive/1507TAku0hhjmkd88r-9rUP9ATtvzsPEC?authuser=1     
 
 Author: Nguyễn Hải Long  

@@ -104,6 +104,64 @@ df_product = product
 df_transactions = transactions
 ```
 
+#### Dataframe df_payment_report  
+Understand about data type / data value
+```
+df_payment_report.head()
+
+# show rows and columns count
+print(f'Rows count: {df_payment_report.shape[0]}\nColums count: {df_payment_report.shape[1]}')
+
+# show data type
+df_payment_report.info()
+
+# further checking on columns
+df_payment_report.shape
+df_payment_report.describe()
+```
+Result:  
+![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_payment_report_eda_1.png)  
+
+Checking unique & missing values
+```
+# check null values
+df_payment_report.isnull().sum()
+
+# check unique values
+## print the percentage of unique
+num_unique = df_payment_report.nunique().sort_values()
+print('---Percentage of unique values (%)---')
+print(100/num_unique)
+
+# check missing data
+missing_value = df_payment_report.isnull().sum().sort_values(ascending = False)
+missing_percent = df_payment_report.isnull().mean().sort_values(ascending = False)
+print('')
+print('---Number of missing values in each column---')
+print(missing_value)
+print('')
+print('---Percentage of missing values (%)---')
+if missing_percent.sum():
+  print(missing_percent[missing_percent > 0] * 100)
+else:
+  print('None')
+
+# check for duplicates
+## show number of duplicated rows
+print('')
+print(f'Number of entirely duplicated rows: {df_payment_report.duplicated().sum()}')
+## show all duplicated rows
+df_payment_report[df_payment_report.duplicated()]
+```
+Result:  
+![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_payment_report_eda_2.png)  
+
+Handle missing values: There are no missing values.  
+
+Handle duplicated values: There are no duplicated values.  
+
+
+
 ## 📌 Key Takeaways:  
 ✔️ Understanding the basics of SQL query.  
 ✔️ Know how to apply Window Functions when writing queries.  

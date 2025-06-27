@@ -80,6 +80,9 @@ Table 3: transactions
 
 ### 1️⃣ EDA
 #### Import libraries and dataset, copy dataset:
+<details>
+  <summary>Code:</summary>
+  
 ```
 # import libraries
 import pandas as pd
@@ -103,8 +106,12 @@ df_payment_report = payment_report
 df_product = product
 df_transactions = transactions
 ```
+</details>
 
 #### Dataframe df_payment_report:  
+<details>
+  <summary>Code:</summary>
+ 
 Understand about data type / data value
 ```
 df_payment_report.head()
@@ -119,10 +126,15 @@ df_payment_report.info()
 df_payment_report.shape
 df_payment_report.describe()
 ```
+</details>
+
 Result:  
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_payment_report_eda_1.png)  
 
 Checking unique & missing values
+<details>
+  <summary>Code:</summary>
+ 
 ```
 # check null values
 df_payment_report.isnull().sum()
@@ -153,6 +165,8 @@ print(f'Number of entirely duplicated rows: {df_payment_report.duplicated().sum(
 ## show all duplicated rows
 df_payment_report[df_payment_report.duplicated()]
 ```
+</details>
+
 Result:  
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_payment_report_eda_2.png)  
 
@@ -162,6 +176,9 @@ Handle duplicated values: There are no duplicated values.
 
 #### Dataframe df_product:  
 Understand about data type / data value  
+<details>
+  <summary>Code:</summary>
+ 
 ```
 df_product.head()
 
@@ -175,10 +192,15 @@ df_product.info()
 df_product.shape
 df_product.describe()
 ```
+</details>
+
 Result:  
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_product_eda_1.png)
 
 Checking unique & missing values
+<details>
+  <summary>Code:</summary>
+ 
 ```
 # check null values
 df_product.isnull().sum()
@@ -209,6 +231,8 @@ print(f'Number of entirely duplicated rows: {df_product.duplicated().sum()}')
 ## show all duplicated rows
 df_product[df_product.duplicated()]
 ```
+</details>
+
 Result:  
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_product_eda_2.png)  
 
@@ -218,6 +242,9 @@ Handle duplicated values: There are no duplicated values.
 
 #### Dataframe df_transactions
 Understand about data type / data value 
+<details>
+  <summary>Code:</summary>
+ 
 ```
 df_transactions.head()
 
@@ -231,10 +258,15 @@ df_transactions.info()
 df_transactions.shape
 df_transactions.describe()
 ```
+</details>
+
 Result:  
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_transactions_eda_1.png)  
 
 Checking unique & missing values  
+<details>
+  <summary>Code:</summary>
+ 
 ```
 # check null values
 df_transactions.isnull().sum()
@@ -265,6 +297,8 @@ print(f'Number of entirely duplicated rows: {df_transactions.duplicated().sum()}
 ## show all duplicated rows
 df_transactions[df_transactions.duplicated()]
 ```
+</details>
+
 Result:  
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_transactions_eda_2.png)
 
@@ -281,16 +315,24 @@ Handle missing data:
 Handle duplicated values: As can see from the table above, there are 28 rows with duplicated data. They are from "extra_info" column and they are missing values. In this case, we will use method from "Handle missing values" part and no need to drop these rows.     
 
 #### Create df payment_enriched (merge payment_report.csv with product.csv)
+<details>
+  <summary>Code:</summary>
+ 
 ```
 payment_enriched = df_payment_report.merge(df_product, on='product_id', how='left')
 payment_enriched.info()
 ```
+</details>
+
 Result:  
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_create_df_payment_enriched.png)  
 
 ### 2️⃣ Data wrangling
 
 #### 1/ Top 3 product_ids with the highest volume.  
+<details>
+  <summary>Code:</summary>
+ 
 ```
 df_top_3 = df_payment_report.groupby('product_id')['volume'].sum().reset_index()
 
@@ -298,34 +340,51 @@ df_top_3 = df_top_3.sort_values(by=['volume'], ascending=False)
 
 df_top_3.head(3)
 ```
+</details>
+
 Result:  
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_1_result.png)  
 
 #### 2/ Given that 1 product_id is only owed by 1 team, are there any abnormal products against this rule?  
+<details>
+  <summary>Code:</summary>
+ 
 ```
 df_1_product_1_team = payment_enriched.groupby('product_id')['team_own'].nunique().reset_index()
 
 df_1_product_1_team[df_1_product_1_team['team_own'] != 1]
 ```
+</details>
+
 Result:  
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_2_result.png)  
 
-#### 3/ Find the team has had the lowest performance (lowest volume) since Q2.2023. Find the category that contributes the least to that team.  
+#### 3/ Find the team has had the lowest performance (lowest volume) since Q2.2023. Find the category that contributes the least to that team.
+<details>
+  <summary>Code:</summary>
+ 
 ```
 df_low = payment_enriched[payment_enriched['report_month'] >= '2023-04']
 
 df_low
 ```
+</details>
+
 Result: 
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_3_result.png)  
 
 #### 4/ Find the contribution of source_ids of refund transactions (payment_group = ‘refund’), what is the source_id with the highest contribution?  
+<details>
+  <summary>Code:</summary>
+ 
 ```
 payment_report_refund = df_payment_report[payment_report.payment_group == 'refund']
 payment_report_refund = payment_report_refund[['source_id','volume']].groupby(by=['source_id']).sum().reset_index().sort_values('volume', ascending=False)
 
 payment_report_refund.head()
 ```
+</details>
+
 Result:  
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_4_result.png)
 
@@ -337,6 +396,9 @@ Result:
 #### - transType = 8, merchant_id = 2250: Transfer Money Transaction  
 #### - transType = 8 & others merchant_id: Split Bill Transaction  
 #### - Remained cases are invalid transactions  
+<details>
+  <summary>Code:</summary>
+ 
 ```
 def trans_type(row):
   # condition Bank Transfer tra cứu với transType và merchant_id
@@ -366,24 +428,35 @@ def trans_type(row):
 df_transactions['transaction_type']=df_transactions.apply(trans_type, axis=1)
 df_transactions.head()
 ```
+</details>
+
 Result:  
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_5_result.png)
 
-#### 6/ Of each transaction type (excluding invalid transactions): find the number of transactions, volume, senders and receivers.
+#### 6/ Of each transaction type (excluding invalid transactions): find the number of transactions, volume, senders and receivers.  
+<details>
+  <summary>Code:</summary>
+ 
 ```
 valid_transactions = df_transactions[df_transactions['transaction_type'] != 'Invalid Transaction']
 
 valid_transactions
 ```
+</details>
+
 Result:  
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_6_result_1.png)  
-
+<details>
+  <summary>Code:</summary>
+ 
 ```
 valid_transactions.groupby(by = 'transaction_type').agg(total_transactions=('transaction_id', 'nunique'),
                                                         total_volume=('volume', 'sum'),
                                                         sender_count=('sender_id', 'nunique'),
                                                         receiver_count=('receiver_id', 'nunique'))
 ```
+</details>
+
 Result:  
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_6_result_2.png)
 

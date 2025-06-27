@@ -108,7 +108,7 @@ df_transactions = transactions
 ```
 </details>
 
-#### Dataframe df_payment_report:  
+#### 💾 Dataframe df_payment_report:  
 <details>
   <summary>Code:</summary>
  
@@ -174,7 +174,7 @@ Handle missing values: There are no missing values.
 
 Handle duplicated values: There are no duplicated values.  
 
-#### Dataframe df_product:  
+#### 💾 Dataframe df_product:  
 Understand about data type / data value  
 <details>
   <summary>Code:</summary>
@@ -240,7 +240,7 @@ Handle missing values: There are no missing values.
 
 Handle duplicated values: There are no duplicated values.  
 
-#### Dataframe df_transactions
+#### 💾 Dataframe df_transactions
 Understand about data type / data value 
 <details>
   <summary>Code:</summary>
@@ -314,7 +314,7 @@ Handle missing data:
 
 Handle duplicated values: As can see from the table above, there are 28 rows with duplicated data. They are from "extra_info" column and they are missing values. In this case, we will use method from "Handle missing values" part and no need to drop these rows.     
 
-#### Create df payment_enriched (merge payment_report.csv with product.csv)
+#### 💾 Create df payment_enriched (merge payment_report.csv with product.csv)
 <details>
   <summary>Code:</summary>
  

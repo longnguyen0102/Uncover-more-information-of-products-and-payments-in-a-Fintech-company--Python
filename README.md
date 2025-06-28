@@ -355,10 +355,10 @@ df_1_product_1_team[df_1_product_1_team['team_own'] != 1]
 ```
 </details>
 
-➡️ As can see from the result, there are only 3 products with id "3", "1976" and "100033" are owned by team 0. All other products are owned by 2 or more teams.  
-
 Result:  
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_2_result.png)  
+
+➡️ As can see from the result, there are only 3 products with id "3", "1976" and "100033" are owned by team 0. All other products are owned by 2 or more teams.  
 
 #### 3/ Find the team has had the lowest performance (lowest volume) since Q2.2023. Find the category that contributes the least to that team.
 <details>
@@ -373,7 +373,7 @@ df_low
 </details>
 
 Result: 
-![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_3_result.png)  
+![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_3_result.png)
 
 ➡️ The team has lowest performance is "ASL" with the volume "39000" and the category that contributes is "PXXXXXF".  
 

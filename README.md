@@ -79,9 +79,8 @@ Table 3: transactions
 ## ⚒️ Main Process
 
 ### 1️⃣ EDA
-#### Import libraries and dataset, copy dataset:
 <details>
-  <summary>Code:</summary>
+  <summary>Import libraries and dataset, copy dataset:</summary>
   
 ```
 # import libraries
@@ -109,6 +108,7 @@ df_transactions = transactions
 </details>
 
 #### 💾 Dataframe df_payment_report:  
+Briefing of dataframe:  
 <details>
   <summary>Code:</summary>
  

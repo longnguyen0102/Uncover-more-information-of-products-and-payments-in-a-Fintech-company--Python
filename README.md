@@ -372,8 +372,8 @@ df_low
 ```
 </details>
 
-Result: 
-![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_3_result.png)
+Result:  
+![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_3_result.png)  
 
 ➡️ The team has lowest performance is "ASL" with the volume "39000" and the category that contributes is "PXXXXXF".  
 
@@ -467,5 +467,5 @@ Result:
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_6_result_2.png)
 
 ## 📌 Key Takeaways:  
-✔️ Understanding the basics and uses of Python.
+✔️ Understanding the basics and uses of Python.  
 ✔️ This project helps decision-makers see the performance of team according to the volume of each product_id. They also understand the payment behavior of consumers, what kind of transaction that cusomters prefer.

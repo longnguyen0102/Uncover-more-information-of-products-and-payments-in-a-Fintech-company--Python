@@ -1,7 +1,7 @@
 # Data wrangling - Fintech - Python
 
 Please check the coding below or access via the link below:  
-https://colab.research.google.com/drive/1507TAku0hhjmkd88r-9rUP9ATtvzsPEC?authuser=1     
+🔗 https://colab.research.google.com/drive/1507TAku0hhjmkd88r-9rUP9ATtvzsPEC?authuser=1 🔗     
 
 Author: Nguyễn Hải Long  
 Date: 2025-04  
@@ -21,6 +21,7 @@ Tools Used: Python
 ### Objective:
 ### 📖 This project is about using Python to analyze given dataset.
 
+✔️ Explore a dataset to understand data types, missing values, duplicated values and how to handle them.
 ✔️ Show up data as demand: number of pageview, visits; calculate the average of money spending by customers in a period of time...
 
 ### 👤 Who is this project for?  
@@ -170,9 +171,7 @@ df_payment_report[df_payment_report.duplicated()]
 Result:  
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_payment_report_eda_2.png)  
 
-Handle missing values: There are no missing values.  
-
-Handle duplicated values: There are no duplicated values.  
+df_payment_report has 0% of missing values and 0% of duplicated values.  
 
 #### 💾 Dataframe df_product:  
 Understand about data type / data value  
@@ -236,9 +235,7 @@ df_product[df_product.duplicated()]
 Result:  
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_product_eda_2.png)  
 
-Handle missing values: There are no missing values.  
-
-Handle duplicated values: There are no duplicated values.  
+df_product has 0% of missing values and 0% of duplicated values. 
 
 #### 💾 Dataframe df_transactions
 Understand about data type / data value 
@@ -302,17 +299,17 @@ df_transactions[df_transactions.duplicated()]
 Result:  
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_transactions_eda_2.png)
 
-Handle incorrect data type: 
+df_transactions has 3 columns with wrong data type, I suggest we can change:  
  - timeStamp -> change to datetime data type.
  - sender_id -> change to int64 data type.
  - receiver_id -> change to int64 data type.
 
-Handle missing data:  
+In addition, the 3 columns also have missing values.
 - sender_id -> need to validate data with data provider/ fill up data according to extra_info (if available).
 - receiver_id -> need to validate data with data provider/ fill up data according to extra_info (if available).  
 - extra_info -> need to validate data with data provider/ fill up data according to sender_id (if available).  
 
-Handle duplicated values: As can see from the table above, there are 28 rows with duplicated data. They are from "extra_info" column and they are missing values. In this case, we will use method from "Handle missing values" part and no need to drop these rows.     
+As can see from the table above, there are 28 rows with duplicated data. They are from "extra_info" column and they are missing values. In this case, we will use method from "Handle missing values" part and no need to drop these rows.     
 
 #### 💾 Create df payment_enriched (merge payment_report.csv with product.csv)
 <details>
@@ -345,6 +342,8 @@ df_top_3.head(3)
 Result:  
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_1_result.png)  
 
+➡️ Products with id "1976", "429", "372" have the highest volume.  
+
 #### 2/ Given that 1 product_id is only owed by 1 team, are there any abnormal products against this rule?  
 <details>
   <summary>Code:</summary>
@@ -356,6 +355,8 @@ df_1_product_1_team[df_1_product_1_team['team_own'] != 1]
 ```
 </details>
 
+➡️ As can see from the result, there are only 3 products with id "3", "1976" and "100033" are owned by team 0. All other products are owned by 2 or more teams.  
+
 Result:  
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_2_result.png)  
 
@@ -365,6 +366,7 @@ Result:
  
 ```
 df_low = payment_enriched[payment_enriched['report_month'] >= '2023-04']
+df_low = df_low.sort_values(by=['volume'], ascending=True)
 
 df_low
 ```
@@ -372,6 +374,8 @@ df_low
 
 Result: 
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_3_result.png)  
+
+➡️ The team has lowest performance is "ASL" with the volume "39000" and the category that contributes is "PXXXXXF".  
 
 #### 4/ Find the contribution of source_ids of refund transactions (payment_group = ‘refund’), what is the source_id with the highest contribution?  
 <details>
@@ -387,6 +391,8 @@ payment_report_refund.head()
 
 Result:  
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_4_result.png)
+
+➡️ source_id = 38 has the highest contribution, with the volume = 36,527,454,759.  
 
 #### 5/ Define type of transactions (‘transaction_type’) for each row, given:  
 #### - transType = 2 & merchant_id = 1205: Bank Transfer Transaction  
@@ -461,6 +467,5 @@ Result:
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_6_result_2.png)
 
 ## 📌 Key Takeaways:  
-✔️ Understanding the basics of SQL query.  
-✔️ Know how to apply Window Functions when writing queries.  
-✔️ Understanding real-world requirements when using SQl to retrieve neceesary data
+✔️ Understanding the basics and uses of Python.
+✔️ This project helps decision-makers see the performance of team according to the volume of each product_id. They also understand the payment behavior of consumers, what kind of transaction that cusomters prefer.

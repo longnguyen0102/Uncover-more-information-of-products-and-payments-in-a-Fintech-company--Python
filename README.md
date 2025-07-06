@@ -1,4 +1,4 @@
-# Fintech - Data wrangling using Python
+# Fintech - Data wrangling to uncover more information of products, payments using Python
 
 Please check the coding below or access via the link below:  
 🔗 https://colab.research.google.com/drive/1507TAku0hhjmkd88r-9rUP9ATtvzsPEC?authuser=1 🔗     

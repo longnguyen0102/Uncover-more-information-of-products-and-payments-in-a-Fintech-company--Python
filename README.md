@@ -205,8 +205,7 @@ Using all 3 tables of the dataset.
   # further checking on columns
   df_product.shape
   df_product.describe()
-  ```
-  </details>  
+  ``` 
   
   ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_product_eda_1.png)
   

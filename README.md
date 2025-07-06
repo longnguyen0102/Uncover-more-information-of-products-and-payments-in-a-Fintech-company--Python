@@ -43,37 +43,44 @@ Tools Used: Python
 Using all 3 tables of the dataset.  
 
 #### 2️⃣ Table Schema & Data Snapshot:  
-Table 1: payment_report  
 
-| Field Name | Data Type |
-|------------|-----------|
-| report_month | object |
-| payment_group | object |
-| product_id | object |
-| source_id | int64 |
-| volume | int64 |
+<details>
+  <summary>Table 1: payment_report </summary>
+  
+  | Field Name | Data Type |
+  |------------|-----------|
+  | report_month | object |
+  | payment_group | object |
+  | product_id | object |
+  | source_id | int64 |
+  | volume | int64 |
+</details>
 
-Table 2: product  
+<details>
+  <summary>Table 2: product</summary>
+  
+  | Field Name | Data Type |
+  |------------|-----------|
+  | product_id | int64 |
+  | category | object |
+  | team_own | object |
+</details>
 
-| Field Name | Data Type |
-|------------|-----------|
-| product_id | int64 |
-| category | object |
-| team_own | object |
-
-Table 3: transactions
-
-| Field Name | Data Type |
-|------------|-----------|
-| transaction_id | int64 |
-| merchant_id | int64 |
-| volume | int64 |
-| transType | int64 |
-| transStatus | int64 |
-| sender_id | float64 |
-| receiver_id | float64 |
-| extra_info | object |
-| timeStamp | int64 |
+<details>
+  <summary>Table 3: transactions</summary>
+  
+  | Field Name | Data Type |
+  |------------|-----------|
+  | transaction_id | int64 |
+  | merchant_id | int64 |
+  | volume | int64 |
+  | transType | int64 |
+  | transStatus | int64 |
+  | sender_id | float64 |
+  | receiver_id | float64 |
+  | extra_info | object |
+  | timeStamp | int64 |
+</details>
 
 ---
 
@@ -83,7 +90,7 @@ Table 3: transactions
 <details>
   <summary>Import libraries and dataset, copy dataset:</summary>
   
-```
+```python
 # import libraries
 import pandas as pd
 import numpy as np
@@ -108,13 +115,14 @@ df_transactions = transactions
 ```
 </details>
 
-#### 💾 Dataframe df_payment_report:  
-Briefing of dataframe:  
+#### Briefing of dataframe:  
+ 
 <details>
-  <summary>Code:</summary>
+  <summary>💾 Dataframe df_payment_report:</summary>
  
 Understand about data type / data value
-```
+
+``` python
 df_payment_report.head()
 
 # show rows and columns count
@@ -126,16 +134,13 @@ df_payment_report.info()
 # further checking on columns
 df_payment_report.shape
 df_payment_report.describe()
-```
-</details>  
- 
+``` 
+
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_payment_report_eda_1.png)  
 
 Checking unique & missing values
-<details>
-  <summary>Code:</summary>
  
-```
+```python
 # check null values
 df_payment_report.isnull().sum()
 
@@ -165,11 +170,11 @@ print(f'Number of entirely duplicated rows: {df_payment_report.duplicated().sum(
 ## show all duplicated rows
 df_payment_report[df_payment_report.duplicated()]
 ```
-</details>  
 
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_payment_report_eda_2.png)  
 
 df_payment_report has 0% of missing values and 0% of duplicated values.  
+</details> 
 
 #### 💾 Dataframe df_product:  
 Understand about data type / data value  

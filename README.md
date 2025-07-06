@@ -47,7 +47,9 @@ Using all 3 tables of the dataset.
 <details>
   <summary>Table 1: payment_report </summary>  
   
-  | Field Name | Data Type |
+  *This table is monthly payment volume of products.*  
+  
+  | Field name | Data type |
   |------------|-----------|
   | report_month | object |
   | payment_group | object |
@@ -59,7 +61,9 @@ Using all 3 tables of the dataset.
 <details>
   <summary>Table 2: product</summary>  
   
-  | Field Name | Data Type |
+  *This table shows the information of products.*  
+  
+  | Field name | Data type |
   |------------|-----------|
   | product_id | int64 |
   | category | object |
@@ -68,8 +72,10 @@ Using all 3 tables of the dataset.
 
 <details>
   <summary>Table 3: transactions</summary>  
+
+  *This table show the information of transactions.*  
   
-  | Field Name | Data Type |
+  | Field name | Data type |
   |------------|-----------|
   | transaction_id | int64 |
   | merchant_id | int64 |
@@ -118,8 +124,8 @@ Using all 3 tables of the dataset.
 #### Briefing of dataframe:  
  
 <details>
-  <summary>💾 Data table df_payment_report:</summary>  
-   
+  <summary>💾 Data table df_payment_report:</summary>    
+  
   #### Understand about data type / data value:  
   
   ``` python
@@ -175,8 +181,13 @@ Using all 3 tables of the dataset.
 
 </details>
 
-➡️ Data table df_payment_report has 5 columns and 919 records, all of them are in correct data types. Also, the table has 0% of missing values and 0% of duplicated values. 
-➡️ This table is monthly payment volume of products.  
+➡️ Data table df_payment_report has 5 columns and 919 records, all of them are in correct data types:  
+- report_month (object): records in "YYYY-MM" format.
+- payment_group (object): only 2 values "payment" or "refund".  
+- prodruct_id (int64): identify products with numerical values.
+- source_id (int64): identify for payment source.
+- volume (int64): represent transaction volume.
+➡️ The table has 0% of missing values and 0% of duplicated values. No actions needed.   
 
 <details>
  
@@ -237,8 +248,11 @@ Using all 3 tables of the dataset.
 
 </details>
 
-➡️ Data table df_payment_report has 3 columns and 492 records, all of them are in correct data types. Also, the table has 0% of missing values and 0% of duplicated values. 
-➡️ This table shows the information of products.  
+➡️ Data table df_payment_report has 3 columns and 492 records, all of them are in correct data types.  
+- product_id (int64): identify products with numerical values.  
+- category (object): identify products with combination of letters and numbers.  
+- team_own (object): identify teams that own specific products.  
+➡️ Also, the table has 0% of missing values and 0% of duplicated values. No actions needed.  
 
 <details>
   <summary>💾 Dataframe df_transactions:</summary>
@@ -308,17 +322,19 @@ Using all 3 tables of the dataset.
 
 ➡️ As can see from the table above, there are 28 rows with duplicated data. They are from "extra_info" column and they are missing values. In this case, we will use method from "Handle missing values" part and no need to drop these rows.     
 
-#### 💾 Create df payment_enriched (merge payment_report.csv with product.csv)
 <details>
-  <summary>Code:</summary>
+  <summary>💾 Create dataframe payment_enriched:</summary>
  
-```
-payment_enriched = df_payment_report.merge(df_product, on='product_id', how='left')
-payment_enriched.info()
-```
+  ```python
+  payment_enriched = df_payment_report.merge(df_product, on='product_id', how='left')
+  payment_enriched.info()
+  ```   
+    
+  ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_create_df_payment_enriched.png)  
+
 </details>  
-  
-![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_create_df_payment_enriched.png)  
+
+➡️ Merging 2 dataframes payment_report and product in order to extract data as demand.
 
 ### 2️⃣ Data wrangling
 
@@ -326,44 +342,44 @@ payment_enriched.info()
 <details>
   <summary>Code:</summary>
  
-```
-df_top_3 = df_payment_report.groupby('product_id')['volume'].sum().reset_index()
-
-df_top_3 = df_top_3.sort_values(by=['volume'], ascending=False)
-
-df_top_3.head(3)
-```
+  ```python
+  df_top_3 = df_payment_report.groupby('product_id')['volume'].sum().reset_index()
+  
+  df_top_3 = df_top_3.sort_values(by=['volume'], ascending=False)
+  
+  df_top_3.head(3)
+  ```
 </details>  
   
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_1_result.png)  
 
-➡️ Products with id "1976", "429", "372" have the highest volume.  
+➡️ Products with id "1976", "429", "372" have the highest volume. These items might be key products in the future.  
 
 #### 2/ Given that 1 product_id is only owed by 1 team, are there any abnormal products against this rule?  
 <details>
   <summary>Code:</summary>
  
-```
-df_1_product_1_team = payment_enriched.groupby('product_id')['team_own'].nunique().reset_index()
-
-df_1_product_1_team[df_1_product_1_team['team_own'] != 1]
-```
+  ```python
+  df_1_product_1_team = payment_enriched.groupby('product_id')['team_own'].nunique().reset_index()
+  
+  df_1_product_1_team[df_1_product_1_team['team_own'] != 1]
+  ```
 </details>  
   
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_2_result.png)  
 
-➡️ As can see from the result, there are only 3 products with id "3", "1976" and "100033" are owned by team 0. All other products are owned by 2 or more teams.  
+➡️ Product with id "3", "1976", and "10033" are not owned by any team. Lacking information might lead to challenge in accountability when issues occur, and may also impact the ability to analyze performance among teams.  
 
 #### 3/ Find the team has had the lowest performance (lowest volume) since Q2.2023. Find the category that contributes the least to that team.
 <details>
   <summary>Code:</summary>
  
-```
-df_low = payment_enriched[payment_enriched['report_month'] >= '2023-04']
-df_low = df_low.sort_values(by=['volume'], ascending=True)
-
-df_low
-```
+  ```python
+  df_low = payment_enriched[payment_enriched['report_month'] >= '2023-04']
+  df_low = df_low.sort_values(by=['volume'], ascending=True)
+  
+  df_low
+  ```
 </details>  
   
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_3_result.png)  
@@ -374,12 +390,12 @@ df_low
 <details>
   <summary>Code:</summary>
  
-```
-payment_report_refund = df_payment_report[payment_report.payment_group == 'refund']
-payment_report_refund = payment_report_refund[['source_id','volume']].groupby(by=['source_id']).sum().reset_index().sort_values('volume', ascending=False)
-
-payment_report_refund.head()
-```
+  ```python
+  payment_report_refund = df_payment_report[payment_report.payment_group == 'refund']
+  payment_report_refund = payment_report_refund[['source_id','volume']].groupby(by=['source_id']).sum().reset_index().sort_values('volume', ascending=False)
+  
+  payment_report_refund.head()
+  ```
 </details>  
   
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_4_result.png)
@@ -397,35 +413,35 @@ payment_report_refund.head()
 <details>
   <summary>Code:</summary>
  
-```
-def trans_type(row):
-  # condition Bank Transfer tra cứu với transType và merchant_id
-  ## run each row of transType và merchant_id
-  transType = row['transType']
-  merchant_id = row['merchant_id']
-
-  # split into 3 cases: transType = 2, transType = 8 and else.
-  if transType == 2:
-    if merchant_id == 1205:
-      return 'Bank Transfer Transaction'
-    elif merchant_id == 2260:
-      return 'Withdraw Money Transaction'
-    elif merchant_id == 2270:
-      return 'Top Up Money Transaction'
+  ```python
+  def trans_type(row):
+    # condition Bank Transfer tra cứu với transType và merchant_id
+    ## run each row of transType và merchant_id
+    transType = row['transType']
+    merchant_id = row['merchant_id']
+  
+    # split into 3 cases: transType = 2, transType = 8 and else.
+    if transType == 2:
+      if merchant_id == 1205:
+        return 'Bank Transfer Transaction'
+      elif merchant_id == 2260:
+        return 'Withdraw Money Transaction'
+      elif merchant_id == 2270:
+        return 'Top Up Money Transaction'
+      else:
+        return 'Payment Transaction'
+    elif transType == 8:
+      if merchant_id == 2250:
+        return 'Transfer Money Transaction'
+      else:
+        return 'Split Bill Transacion'
     else:
-      return 'Payment Transaction'
-  elif transType == 8:
-    if merchant_id == 2250:
-      return 'Transfer Money Transaction'
-    else:
-      return 'Split Bill Transacion'
-  else:
-    return 'Invalid Transaction'
-
-# apply trans_type
-df_transactions['transaction_type']=df_transactions.apply(trans_type, axis=1)
-df_transactions.head()
-```
+      return 'Invalid Transaction'
+  
+  # apply trans_type
+  df_transactions['transaction_type']=df_transactions.apply(trans_type, axis=1)
+  df_transactions.head()
+  ```
 </details>  
   
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_5_result.png)
@@ -434,27 +450,30 @@ df_transactions.head()
 <details>
   <summary>Code:</summary>
  
-```
-valid_transactions = df_transactions[df_transactions['transaction_type'] != 'Invalid Transaction']
-
-valid_transactions
-```
-</details>  
+  ```python
+  valid_transactions = df_transactions[df_transactions['transaction_type'] != 'Invalid Transaction']
+  valid_transactions
+  ```
   
-![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_6_result_1.png)  
-<details>
-  <summary>Code:</summary>
+  ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_6_result_1.png)  
  
-```
-valid_transactions.groupby(by = 'transaction_type').agg(total_transactions=('transaction_id', 'nunique'),
-                                                        total_volume=('volume', 'sum'),
-                                                        sender_count=('sender_id', 'nunique'),
-                                                        receiver_count=('receiver_id', 'nunique'))
-```
+  ```python
+  valid_transactions.groupby(by = 'transaction_type').agg(total_transactions=('transaction_id', 'nunique'),
+                                                          total_volume=('volume', 'sum'),
+                                                          sender_count=('sender_id', 'nunique'),
+                                                          receiver_count=('receiver_id', 'nunique'))
+  ```
 </details>  
   
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_6_result_2.png)
 
+➡️ These are few insights to be drawn from:  
+- "Payment Transaction" is the most frequent transaction type in terms of both transaction count and user engagement.  
+- "Top Up Money Transaction" and "Bank Transfer Transaction" lead in terms of total transaction volume, making them critical for analyzing high-value user behavior such as top-ups and large transfers.  
+- "Split Bill Transaction" has low usage frequency, suggesting it may not be a core feature or is underutilized by users.  
+
 ## 📌 Key Takeaways:  
-✔️ Understanding the basics and uses of Python.  
-✔️ This project helps decision-makers see the performance of team according to the volume of each product_id. They also understand the payment behavior of consumers, what kind of transaction that cusomters prefer.
+✔️ Understanding the basics and uses of Python in exploring and extracting data.  
+✔️ This project helps the company identify which products can be considered as potential key products in the future, and which ones should be re-evaluated due to high return rates.  
+✔️ Data incompleteness negatively impacts the analysis of team performance as well as the sales and revenue evaluation of products.  
+✔️ Through deeper analysis, we can uncover which payment methods are most preferred by consumers, and which ones need to be optimized to minimize operational costs or maximize user adoption.

@@ -443,6 +443,8 @@ Using all 3 tables of the dataset.
   
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_5_result.png)
 
+➡️ Creating a new column called "transaction_type" to segment the type of trasaction based on demand above.  
+
 #### 6/ Of each transaction type (excluding invalid transactions): find the number of transactions, volume, senders and receivers.  
 <details>
   <summary>Code:</summary>

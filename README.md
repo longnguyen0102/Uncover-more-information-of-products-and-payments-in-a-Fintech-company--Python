@@ -186,7 +186,7 @@ Using all 3 tables of the dataset.
 - payment_group (object): only 2 values "payment" or "refund".  
 - prodruct_id (int64): identify products with numerical values.
 - source_id (int64): identify for payment source.
-- volume (int64): represent transaction volume.
+- volume (int64): represent transaction volume.  
 ➡️ The table has 0% of missing values and 0% of duplicated values. No actions needed.   
  
 <details>

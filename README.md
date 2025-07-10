@@ -1,4 +1,4 @@
-# Uncover more information of products and payments in a Fintech company using Python
+# Uncover more information of products and payments in a Fintech company | Python
 
 Please check the coding below or access via the link below:  
 🔗 https://colab.research.google.com/drive/1507TAku0hhjmkd88r-9rUP9ATtvzsPEC?authuser=1 🔗     

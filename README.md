@@ -21,8 +21,7 @@ Tools Used: Python
 ### Objective:
 ### 📖 This project is about using Python to analyze given dataset.
 
-✔️ Explore a dataset to understand data types, missing values, duplicated values and how to handle them.  
-✔️ Show up data as demand: number of pageview, visits; calculate the average of money spending by customers in a period of time...
+(sửa lại phần này)  
 
 ### 👤 Who is this project for?  
 
@@ -124,7 +123,7 @@ Using all 3 tables of the dataset.
 #### Briefing of dataframe:  
  
 <details>
-  <summary>💾 Data table df_payment_report:</summary>    
+  <summary>💾 Explore data in table df_payment_report:</summary>    
   
   #### Understand about data type / data value:  
   
@@ -181,17 +180,10 @@ Using all 3 tables of the dataset.
 
 </details>
 
-➡️ Data table df_payment_report has 5 columns and 919 records, all of them are in correct data types:  
-- report_month (object): records in "YYYY-MM" format.
-- payment_group (object): only 2 values "payment" or "refund".  
-- prodruct_id (int64): identify products with numerical values.
-- source_id (int64): identify for payment source.
-- volume (int64): represent transaction volume.
-
-➡️ The table has 0% of missing values and 0% of duplicated values. No actions needed.   
+➡️ Data in table df_payment_report has 5 columns and 919 records, all of them are in correct data types. The table has 0% of missing values and 0% of duplicated values. No actions needed.   
  
 <details>
-  <summary>💾 Dataframe df_product: </summary>
+  <summary>💾 Explore data in table df_product: </summary>
   
   #### Understand about data type / data value:  
   ```python
@@ -246,15 +238,10 @@ Using all 3 tables of the dataset.
 
 </details>
 
-➡️ Data table df_payment_report has 3 columns and 492 records, all of them are in correct data types.  
-- product_id (int64): identify products with numerical values.  
-- category (object): identify products with combination of letters and numbers.  
-- team_own (object): identify teams that own specific products.  
-
-➡️ Also, the table has 0% of missing values and 0% of duplicated values. No actions needed.  
+➡️ Data in df_payment_report has 3 columns and 492 records, all of them are in correct data types. Also, the table has 0% of missing values and 0% of duplicated values. No actions needed.  
 
 <details>
-  <summary>💾 Dataframe df_transactions:</summary>
+  <summary>💾 Explore data in table df_transactions:</summary>
   
   #### Understand about data type / data value:   
   ```python
@@ -337,7 +324,7 @@ Using all 3 tables of the dataset.
 
 ### 2️⃣ Data wrangling
 
-#### 1/ Top 3 product_ids with the highest volume.  
+### 1/ Top 3 product_ids with the highest volume.  
 <details>
   <summary>Code:</summary>
  
@@ -354,7 +341,7 @@ Using all 3 tables of the dataset.
 
 ➡️ Products with id "1976", "429", "372" have the highest volume. These items might be key products in the future.  
 
-#### 2/ Given that 1 product_id is only owed by 1 team, are there any abnormal products against this rule?  
+### 2/ Given that 1 product_id is only owed by 1 team, are there any abnormal products against this rule?  
 <details>
   <summary>Code:</summary>
  
@@ -369,7 +356,7 @@ Using all 3 tables of the dataset.
 
 ➡️ Product with id "3", "1976", and "10033" are not owned by any team. Lacking information might lead to challenge in accountability when issues occur, and may also impact the ability to analyze performance among teams.  
 
-#### 3/ Find the team has had the lowest performance (lowest volume) since Q2.2023. Find the category that contributes the least to that team.
+### 3/ Find the team has had the lowest performance (lowest volume) since Q2.2023. Find the category that contributes the least to that team.
 <details>
   <summary>Code:</summary>
  
@@ -385,7 +372,7 @@ Using all 3 tables of the dataset.
 
 ➡️ The team has lowest performance is "ASL" with the volume "39000" and the category that contributes is "PXXXXXF".  
 
-#### 4/ Find the contribution of source_ids of refund transactions (payment_group = ‘refund’), what is the source_id with the highest contribution?  
+### 4/ Find the contribution of source_ids of refund transactions (payment_group = ‘refund’), what is the source_id with the highest contribution?  
 <details>
   <summary>Code:</summary>
  
@@ -401,14 +388,14 @@ Using all 3 tables of the dataset.
 
 ➡️ source_id = 38 has the highest contribution, with the volume = 36,527,454,759.  
 
-#### 5/ Define type of transactions (‘transaction_type’) for each row, given:  
-#### - transType = 2 & merchant_id = 1205: Bank Transfer Transaction  
-#### - transType = 2 & merchant_id = 2260: Withdraw Money Transaction  
-#### - transType = 2 & merchant_id = 2270: Top Up Money Transaction  
-#### - transType = 2 & others merchant_id: Payment Transaction  
-#### - transType = 8, merchant_id = 2250: Transfer Money Transaction  
-#### - transType = 8 & others merchant_id: Split Bill Transaction  
-#### - Remained cases are invalid transactions  
+### 5/ Define type of transactions (‘transaction_type’) for each row, given:  
+### - transType = 2 & merchant_id = 1205: Bank Transfer Transaction  
+### - transType = 2 & merchant_id = 2260: Withdraw Money Transaction  
+### - transType = 2 & merchant_id = 2270: Top Up Money Transaction  
+### - transType = 2 & others merchant_id: Payment Transaction  
+### - transType = 8, merchant_id = 2250: Transfer Money Transaction  
+### - transType = 8 & others merchant_id: Split Bill Transaction  
+### - Remained cases are invalid transactions  
 <details>
   <summary>Code:</summary>
  
@@ -447,7 +434,7 @@ Using all 3 tables of the dataset.
 
 ➡️ Creating a new column called "transaction_type" to segment the type of trasaction based on demand above.  
 
-#### 6/ Of each transaction type (excluding invalid transactions): find the number of transactions, volume, senders and receivers.  
+### 6/ Of each transaction type (excluding invalid transactions): find the number of transactions, volume, senders and receivers.  
 <details>
   <summary>Code:</summary>
  

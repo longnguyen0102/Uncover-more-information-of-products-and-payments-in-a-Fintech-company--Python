@@ -122,7 +122,7 @@ Using all 3 tables of the dataset.
 #### Briefing of dataframe:  
  
 <details>
-  <summary>💾 Explore data in table df_payment_report:</summary>    
+  <summary><strong>💾 Explore data in table df_payment_report:</strong></summary>    
   
   #### Understand about data type / data value:  
   

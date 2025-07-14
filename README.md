@@ -19,9 +19,9 @@ Tools Used: Python
 ## 📌 Background & Overview  
 
 ### Objective:
-### 📖 This project is about using Python to analyze given dataset.
+### 📖 What is this project about?  
 
-(sửa lại phần này)  
+- 
 
 ### 👤 Who is this project for?  
 
@@ -33,7 +33,6 @@ Tools Used: Python
 ## 📂 Dataset Description & Data Structure  
 
 ### 📌 Data Source  
-- Source: 
 - Size: The dataset has 3 tables: payment_report (5 columns, 919 rows), product (3 columns, 492 rows), and transactions (9 columns, 1324002 rows).
 - Format: .csv
 
@@ -183,7 +182,7 @@ Using all 3 tables of the dataset.
 ➡️ Data in table df_payment_report has 5 columns and 919 records, all of them are in correct data types. The table has 0% of missing values and 0% of duplicated values. No actions needed.   
  
 <details>
-  <summary>💾 Explore data in table df_product: </summary>
+  <summary>## 💾 Explore data in table df_product:</summary>
   
   #### Understand about data type / data value:  
   ```python

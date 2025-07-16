@@ -21,7 +21,10 @@ Tools Used: Python
 ### Objective:
 ### 📖 What is this project about?  
 
-- 
+- This analysis is based on a dataset consisting of three CSV files.
+- The objective is to gain insights into the payment or transaction status within an e-wallet company.
+- Additionally, the analysis aims to evaluate the performance of various teams in order to assess operational efficiency and identify product groups with the least contribution.
+- Another key focus is to categorize different types of payment methods, enabling cost optimization and improved financial planning.  
 
 ### 👤 Who is this project for?  
 
@@ -182,7 +185,7 @@ Using all 3 tables of the dataset.
 ➡️ Data in table df_payment_report has 5 columns and 919 records, all of them are in correct data types. The table has 0% of missing values and 0% of duplicated values. No actions needed.   
  
 <details>
-  <summary>## 💾 Explore data in table df_product:</summary>
+  <summary><strong>💾 Explore data in table df_product:</strong></summary>
   
   #### Understand about data type / data value:  
   ```python
@@ -240,7 +243,7 @@ Using all 3 tables of the dataset.
 ➡️ Data in df_payment_report has 3 columns and 492 records, all of them are in correct data types. Also, the table has 0% of missing values and 0% of duplicated values. No actions needed.  
 
 <details>
-  <summary>💾 Explore data in table df_transactions:</summary>
+  <summary><strong>💾 Explore data in table df_transactions:</strong></summary>
   
   #### Understand about data type / data value:   
   ```python
@@ -308,7 +311,7 @@ Using all 3 tables of the dataset.
 ➡️ As can see from the table above, there are 28 rows with duplicated data. They are from "extra_info" column and they are missing values. In this case, we will use method from "Handle missing values" part and no need to drop these rows.     
 
 <details>
-  <summary>💾 Create dataframe payment_enriched:</summary>
+  <summary><strong>💾 Create dataframe payment_enriched:</strong></summary>
  
   ```python
   payment_enriched = df_payment_report.merge(df_product, on='product_id', how='left')

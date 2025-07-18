@@ -322,7 +322,7 @@ Using all 3 tables of the dataset.
 
 </details>  
 
-➡️ Merging 2 dataframes payment_report and product in order to extract data as demand.
+➡️ Merging 2 dataframes payment_report and product for further analysis in products, team performance.  
 
 ### 2️⃣ Data wrangling
 

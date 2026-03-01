@@ -259,26 +259,22 @@ Using all 3 tables of the dataset.
   
 </details>
 
-### Briefing of dataframe:  
+### ➡️ Briefing of dataframe:  
 
 > Data in table df_payment_report has 5 columns and 919 records, all of them are in correct data types. The table has 0% of missing values and 0% of duplicated values. No actions needed.
-
 > Data in df_payment_report has 3 columns and 492 records, all of them are in correct data types. Also, the table has 0% of missing values and 0% of duplicated values. No actions needed.
-
 > Dataframe has 3 columns with wrong data type, I suggest we can change:  
 >  - timeStamp -> change to datetime data type.  
 >  - sender_id -> change to int64 data type.  
 >  - receiver_id -> change to int64 data type.
-
 > In addition, the 3 columns also have missing values:  
 >  - sender_id -> need to validate data with data provider/ fill up data according to extra_info (if available).
 >  - receiver_id -> need to validate data with data provider/ fill up data according to extra_info (if available).  
 >  - extra_info -> need to validate data with data provider/ fill up data according to sender_id (if available).
-
 > As can see from the table above, there are 28 rows with duplicated data. They are from "extra_info" column and they are missing values. In this case, we will use method from "Handle missing values" part and no need to drop these rows.     
 
 <details>
-  <summary><strong>💾 Create dataframe payment_enriched:</strong></summary>
+  <summary><em>💾 Create dataframe payment_enriched:</em></summary>
  
   ```python
   payment_enriched = df_payment_report.merge(df_product, on='product_id', how='left')

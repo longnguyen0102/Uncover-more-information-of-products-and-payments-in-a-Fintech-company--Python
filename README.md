@@ -93,7 +93,7 @@ Using all 3 tables of the dataset.
 
 ## ⚒️ Main Process
 
-### 1️⃣ EDA
+## 1️⃣ EDA
 <details>
   <summary>Import libraries and dataset, copy dataset:</summary>
   
@@ -182,7 +182,7 @@ Using all 3 tables of the dataset.
 
 </details>
 
-➡️ Data in table df_payment_report has 5 columns and 919 records, all of them are in correct data types. The table has 0% of missing values and 0% of duplicated values. No actions needed.   
+> Data in table df_payment_report has 5 columns and 919 records, all of them are in correct data types. The table has 0% of missing values and 0% of duplicated values. No actions needed.   
  
 <details>
   <summary><strong>💾 Explore data in table df_product:</strong></summary>
@@ -240,7 +240,7 @@ Using all 3 tables of the dataset.
 
 </details>
 
-➡️ Data in df_payment_report has 3 columns and 492 records, all of them are in correct data types. Also, the table has 0% of missing values and 0% of duplicated values. No actions needed.  
+> Data in df_payment_report has 3 columns and 492 records, all of them are in correct data types. Also, the table has 0% of missing values and 0% of duplicated values. No actions needed.  
 
 <details>
   <summary><strong>💾 Explore data in table df_transactions:</strong></summary>
@@ -298,7 +298,7 @@ Using all 3 tables of the dataset.
 
 </details>
 
-➡️ Dataframe has 3 columns with wrong data type, I suggest we can change:  
+> Dataframe has 3 columns with wrong data type, I suggest we can change:  
   - timeStamp -> change to datetime data type.  
   - sender_id -> change to int64 data type.  
   - receiver_id -> change to int64 data type.  

@@ -121,6 +121,8 @@ Using all 3 tables of the dataset.
   df_transactions = transactions
   ```
 
+  #### Understand about data type / data value and checking unique & missing values of *df_payment_report*:
+  
   ``` python
   df_payment_report.head()
   
@@ -178,9 +180,9 @@ Using all 3 tables of the dataset.
 <details>
   <summary><strong>💾 Explore data in table df_payment_report:</strong></summary>    
   
-  #### Understand about data type / data value:  
+    
   
-  #### Checking unique & missing values:  
+  
    
   
 

@@ -137,9 +137,8 @@ Using all 3 tables of the dataset.
   df_payment_report.describe()
   ```
   
-  <div class="grid cards" markdown>
+  <div class="grid" markdown>
     ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_payment_report_eda_1.png)
-    ---
     ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_payment_report_eda_2.png)
   </div>
 

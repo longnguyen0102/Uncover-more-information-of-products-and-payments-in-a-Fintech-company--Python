@@ -164,7 +164,7 @@ Using all 3 tables of the dataset.
    ## show all duplicated rows
    df_payment_report[df_payment_report.duplicated()]
   ```  
-  <img src="https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_payment_report_eda_1.png" width="37%"/><img src="https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_payment_report_eda_2.png" width="40%"/>
+  <img src="https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_payment_report_eda_1.png" width="50%"/><img src="https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_payment_report_eda_2.png" width="50%"/>
 
   ## Understand about data type / data value and checking unique & missing values of *df_product*:  
    ```python
@@ -209,7 +209,7 @@ Using all 3 tables of the dataset.
   ## show all duplicated rows
   df_product[df_product.duplicated()]
   ```  
-  <img src="https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_product_eda_1.png" width="37%"/><img src="https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_product_eda_2.png" width="40%"/>
+  <img src="https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_product_eda_1.png" width="50%"/><img src="https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_product_eda_2.png" width="50%"/>
 
   ## Understand about data type / data value and checking unique & missing values of *df_transactions*:  
   ```python
@@ -253,8 +253,9 @@ Using all 3 tables of the dataset.
   print(f'Number of entirely duplicated rows: {df_transactions.duplicated().sum()}')
   ## show all duplicated rows
   df_transactions[df_transactions.duplicated()]
-  ```
-  <img src="https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_transactions_eda_1.png" width="37%"/><img src="https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_transactions_eda_2.png" width="40%"/>
+  ```  
+  ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_transactions_eda_1.png)
+  ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_transactions_eda_2.png)  
   
 </details>
 

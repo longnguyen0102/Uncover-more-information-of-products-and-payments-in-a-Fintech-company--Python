@@ -121,8 +121,7 @@ Using all 3 tables of the dataset.
   df_transactions = transactions
   ```
 
-  #### Understand about data type / data value and checking unique & missing values of *df_payment_report*:
-  
+  ## Understand about data type / data value and checking unique & missing values of *df_payment_report*:    
   ``` python
   df_payment_report.head()
   
@@ -137,48 +136,38 @@ Using all 3 tables of the dataset.
   df_payment_report.describe()
 
    # check null values
-    df_payment_report.isnull().sum()
+   df_payment_report.isnull().sum()
     
-    # check unique values
-    ## print the percentage of unique
-    num_unique = df_payment_report.nunique().sort_values()
-    print('---Percentage of unique values (%)---')
-    print(100/num_unique)
+   # check unique values
+   ## print the percentage of unique
+   num_unique = df_payment_report.nunique().sort_values()
+   print('---Percentage of unique values (%)---')
+   print(100/num_unique)
     
-    # check missing data
-    missing_value = df_payment_report.isnull().sum().sort_values(ascending = False)
-    missing_percent = df_payment_report.isnull().mean().sort_values(ascending = False)
-    print('')
-    print('---Number of missing values in each column---')
-    print(missing_value)
-    print('')
-    print('---Percentage of missing values (%)---')
-    if missing_percent.sum():
-      print(missing_percent[missing_percent > 0] * 100)
-    else:
-      print('None')
+   # check missing data
+   missing_value = df_payment_report.isnull().sum().sort_values(ascending = False)
+   missing_percent = df_payment_report.isnull().mean().sort_values(ascending = False)
+   print('')
+   print('---Number of missing values in each column---')
+   print(missing_value)
+   print('')
+   print('---Percentage of missing values (%)---')
+   if missing_percent.sum():
+     print(missing_percent[missing_percent > 0] * 100)
+   else:
+     print('None')
     
-    # check for duplicates
-    ## show number of duplicated rows
-    print('')
-    print(f'Number of entirely duplicated rows: {df_payment_report.duplicated().sum()}')
-    ## show all duplicated rows
-    df_payment_report[df_payment_report.duplicated()]
-  ```
+   # check for duplicates
+   ## show number of duplicated rows
+   print('')
+   print(f'Number of entirely duplicated rows: {df_payment_report.duplicated().sum()}')
+   ## show all duplicated rows
+   df_payment_report[df_payment_report.duplicated()]
+  ```  
+  <img src="https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_payment_report_eda_1.png" width="37%"/><img src="https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_payment_report_eda_2.png" width="40%"/>
 
-  <img src="https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_payment_report_eda_1.png" width="37%"/><img src="https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_payment_report_eda_2.png" width="30%" style="margin-bottom:100%"/>
-
-</details>
-
-#### Briefing of dataframe:  
-
-> Data in table df_payment_report has 5 columns and 919 records, all of them are in correct data types. The table has 0% of missing values and 0% of duplicated values. No actions needed.   
- 
-<details>
-  <summary><strong>💾 Explore data in table df_product:</strong></summary>
-  
-  #### Understand about data type / data value:  
-  ```python
+  ## Understand about data type / data value and checking unique & missing values of *df_product*:  
+   ```python
   df_product.head()
   
   # show rows and columns count
@@ -190,13 +179,8 @@ Using all 3 tables of the dataset.
   # further checking on columns
   df_product.shape
   df_product.describe()
-  ``` 
-  
-  ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_product_eda_1.png)
-  
-  #### Checking unique & missing values:  
-  ```python
-  # check null values
+
+   # check null values
   df_product.isnull().sum()
   
   # check unique values
@@ -224,18 +208,10 @@ Using all 3 tables of the dataset.
   print(f'Number of entirely duplicated rows: {df_product.duplicated().sum()}')
   ## show all duplicated rows
   df_product[df_product.duplicated()]
-  ```
-   
-  ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_product_eda_2.png)  
+  ```  
+  <img src="https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_product_eda_1.png" width="37%"/><img src="https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_product_eda_2.png" width="40%"/>
 
-</details>
-
-> Data in df_payment_report has 3 columns and 492 records, all of them are in correct data types. Also, the table has 0% of missing values and 0% of duplicated values. No actions needed.  
-
-<details>
-  <summary><strong>💾 Explore data in table df_transactions:</strong></summary>
-  
-  #### Understand about data type / data value:   
+  ## Understand about data type / data value and checking unique & missing values of *df_transactions*:  
   ```python
   df_transactions.head()
   
@@ -248,12 +224,7 @@ Using all 3 tables of the dataset.
   # further checking on columns
   df_transactions.shape
   df_transactions.describe()
-  ``` 
-    
-  ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_transactions_eda_1.png)  
-  
-  #### Checking unique & missing values:  
-  ```
+
   # check null values
   df_transactions.isnull().sum()
   
@@ -283,22 +254,27 @@ Using all 3 tables of the dataset.
   ## show all duplicated rows
   df_transactions[df_transactions.duplicated()]
   ```
-   
-  ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_transactions_eda_2.png)
-
+  <img src="https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_transactions_eda_1.png" width="37%"/><img src="https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_transactions_eda_2.png" width="40%"/>
+  
 </details>
 
+> #### Briefing of dataframe:  
+
+> Data in table df_payment_report has 5 columns and 919 records, all of them are in correct data types. The table has 0% of missing values and 0% of duplicated values. No actions needed.   
+
+> Data in df_payment_report has 3 columns and 492 records, all of them are in correct data types. Also, the table has 0% of missing values and 0% of duplicated values. No actions needed.  
+
 > Dataframe has 3 columns with wrong data type, I suggest we can change:  
-  - timeStamp -> change to datetime data type.  
-  - sender_id -> change to int64 data type.  
-  - receiver_id -> change to int64 data type.  
+>  - timeStamp -> change to datetime data type.  
+>  - sender_id -> change to int64 data type.  
+>  - receiver_id -> change to int64 data type.  
 
-➡️ In addition, the 3 columns also have missing values.  
-  - sender_id -> need to validate data with data provider/ fill up data according to extra_info (if available).
-  - receiver_id -> need to validate data with data provider/ fill up data according to extra_info (if available).  
-  - extra_info -> need to validate data with data provider/ fill up data according to sender_id (if available).  
+> In addition, the 3 columns also have missing values.  
+>  - sender_id -> need to validate data with data provider/ fill up data according to extra_info (if available).
+>  - receiver_id -> need to validate data with data provider/ fill up data according to extra_info (if available).  
+>  - extra_info -> need to validate data with data provider/ fill up data according to sender_id (if available).  
 
-➡️ As can see from the table above, there are 28 rows with duplicated data. They are from "extra_info" column and they are missing values. In this case, we will use method from "Handle missing values" part and no need to drop these rows.     
+> As can see from the table above, there are 28 rows with duplicated data. They are from "extra_info" column and they are missing values. In this case, we will use method from "Handle missing values" part and no need to drop these rows.     
 
 <details>
   <summary><strong>💾 Create dataframe payment_enriched:</strong></summary>

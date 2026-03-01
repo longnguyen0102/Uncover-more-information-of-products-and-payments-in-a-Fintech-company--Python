@@ -136,16 +136,8 @@ Using all 3 tables of the dataset.
   df_payment_report.shape
   df_payment_report.describe()
   ```
-  
-   <div class="grid" markdown>
-      
-    ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_payment_report_eda_1.png)
-      
-    ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_payment_report_eda_2.png)
-      
-  </div>
 
-  <img src="https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_payment_report_eda_1.png" width="48%" style="margin-right: 1%;"/><img src="https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_payment_report_eda_2.png" width="48%" style="margin-left: 1%;"/>
+  <img src="https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_payment_report_eda_1.png" width="50%"/><img src="https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_payment_report_eda_2.png" width="50%"/>
 
   ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_payment_report_eda_1.png)  
 

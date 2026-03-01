@@ -135,61 +135,42 @@ Using all 3 tables of the dataset.
   # further checking on columns
   df_payment_report.shape
   df_payment_report.describe()
+
+   # check null values
+    df_payment_report.isnull().sum()
+    
+    # check unique values
+    ## print the percentage of unique
+    num_unique = df_payment_report.nunique().sort_values()
+    print('---Percentage of unique values (%)---')
+    print(100/num_unique)
+    
+    # check missing data
+    missing_value = df_payment_report.isnull().sum().sort_values(ascending = False)
+    missing_percent = df_payment_report.isnull().mean().sort_values(ascending = False)
+    print('')
+    print('---Number of missing values in each column---')
+    print(missing_value)
+    print('')
+    print('---Percentage of missing values (%)---')
+    if missing_percent.sum():
+      print(missing_percent[missing_percent > 0] * 100)
+    else:
+      print('None')
+    
+    # check for duplicates
+    ## show number of duplicated rows
+    print('')
+    print(f'Number of entirely duplicated rows: {df_payment_report.duplicated().sum()}')
+    ## show all duplicated rows
+    df_payment_report[df_payment_report.duplicated()]
   ```
 
-  <img src="https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_payment_report_eda_1.png" width="38%"/><img src="https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_payment_report_eda_2.png" width="50%" style="margin-bottom:100%; margin-left:20px"/>
+  <img src="https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_payment_report_eda_1.png" width="37%"/><img src="https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_payment_report_eda_2.png" width="30%" style="margin-bottom:100%"/>
 
-  ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_payment_report_eda_1.png)  
-
-  ```python
-  # check null values
-  df_payment_report.isnull().sum()
-  
-  # check unique values
-  ## print the percentage of unique
-  num_unique = df_payment_report.nunique().sort_values()
-  print('---Percentage of unique values (%)---')
-  print(100/num_unique)
-  
-  # check missing data
-  missing_value = df_payment_report.isnull().sum().sort_values(ascending = False)
-  missing_percent = df_payment_report.isnull().mean().sort_values(ascending = False)
-  print('')
-  print('---Number of missing values in each column---')
-  print(missing_value)
-  print('')
-  print('---Percentage of missing values (%)---')
-  if missing_percent.sum():
-    print(missing_percent[missing_percent > 0] * 100)
-  else:
-    print('None')
-  
-  # check for duplicates
-  ## show number of duplicated rows
-  print('')
-  print(f'Number of entirely duplicated rows: {df_payment_report.duplicated().sum()}')
-  ## show all duplicated rows
-  df_payment_report[df_payment_report.duplicated()]
-  ```
-  
-  ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_payment_report_eda_2.png)  
-
-  
-  
 </details>
 
 #### Briefing of dataframe:  
- 
-<details>
-  <summary><strong>💾 Explore data in table df_payment_report:</strong></summary>    
-  
-    
-  
-  
-   
-  
-
-</details>
 
 > Data in table df_payment_report has 5 columns and 919 records, all of them are in correct data types. The table has 0% of missing values and 0% of duplicated values. No actions needed.   
  

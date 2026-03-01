@@ -46,7 +46,7 @@ Using all 3 tables of the dataset.
 #### 2️⃣ Table Schema & Data Snapshot:  
 
 <details>
-  <summary>Table 1: payment_report </summary>  
+  <summary><em>Table 1: payment_report</em></summary>  
   
   *This table is monthly payment volume of products.*  
   
@@ -60,7 +60,7 @@ Using all 3 tables of the dataset.
 </details>
 
 <details>
-  <summary>Table 2: product</summary>  
+  <summary><em>Table 2: product</em></summary>  
   
   *This table shows the information of products.*  
   
@@ -72,7 +72,7 @@ Using all 3 tables of the dataset.
 </details>
 
 <details>
-  <summary>Table 3: transactions</summary>  
+  <summary><em>Table 3: transactions</em></summary>  
 
   *This table show the information of transactions.*  
   
@@ -95,7 +95,7 @@ Using all 3 tables of the dataset.
 
 ## 1️⃣ EDA
 <details>
-  <summary>Import libraries and dataset, copy dataset:</summary>
+  <summary><em>Import libraries and dataset, copy dataset, and explore tables:</em></summary>
   
   ```python
   # import libraries
@@ -120,15 +120,7 @@ Using all 3 tables of the dataset.
   df_product = product
   df_transactions = transactions
   ```
-</details>
 
-#### Briefing of dataframe:  
- 
-<details>
-  <summary><strong>💾 Explore data in table df_payment_report:</strong></summary>    
-  
-  #### Understand about data type / data value:  
-  
   ``` python
   df_payment_report.head()
   
@@ -141,12 +133,9 @@ Using all 3 tables of the dataset.
   # further checking on columns
   df_payment_report.shape
   df_payment_report.describe()
-  ``` 
-  
+  ```
   ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_payment_report_eda_1.png)  
-  
-  #### Checking unique & missing values:  
-   
+
   ```python
   # check null values
   df_payment_report.isnull().sum()
@@ -179,6 +168,21 @@ Using all 3 tables of the dataset.
   ```
   
   ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_payment_report_eda_2.png)  
+
+  
+  
+</details>
+
+#### Briefing of dataframe:  
+ 
+<details>
+  <summary><strong>💾 Explore data in table df_payment_report:</strong></summary>    
+  
+  #### Understand about data type / data value:  
+  
+  #### Checking unique & missing values:  
+   
+  
 
 </details>
 

@@ -265,7 +265,7 @@ Using all 3 tables of the dataset.
 > Data in df_payment_report has 3 columns and 492 records, all of them are in correct data types. Also, the table has 0% of missing values and 0% of duplicated values. No actions needed.  
 > Dataframe has 3 columns with wrong data type, I suggest we can change:  
 >  - timeStamp -> change to datetime data type.  
->  - sender_id -> change to int64 data type.    
+>  - sender_id -> change to int64 data type.   
 >  - receiver_id -> change to int64 data type.  
 > In addition, the 3 columns also have missing values:  
 >  - sender_id -> need to validate data with data provider/ fill up data according to extra_info (if available).  

@@ -139,7 +139,6 @@ Using all 3 tables of the dataset.
    df_payment_report.isnull().sum()
     
    # check unique values
-   ## print the percentage of unique
    num_unique = df_payment_report.nunique().sort_values()
    print('---Percentage of unique values (%)---')
    print(100/num_unique)
@@ -184,7 +183,6 @@ Using all 3 tables of the dataset.
   df_product.isnull().sum()
   
   # check unique values
-  ## print the percentage of unique
   num_unique = df_product.nunique().sort_values()
   print('---Percentage of unique values (%)---')
   print(100/num_unique)
@@ -229,7 +227,6 @@ Using all 3 tables of the dataset.
   df_transactions.isnull().sum()
   
   # check unique values
-  ## print the percentage of unique
   num_unique = df_transactions.nunique().sort_values()
   print('---Percentage of unique values (%)---')
   print(100/num_unique)
@@ -286,7 +283,7 @@ Using all 3 tables of the dataset.
 
 </details>  
 
-### ➡️ Purpose of merging 2 dataframes:  
+### Purpose of merging 2 dataframes:  
 > Merging 2 dataframes payment_report and product for further analysis in products, team performance. The purpose of this merge is to combine the payment volume data with detailed product information. This will help further analysis with richer information.  
 ## 2️⃣ Data wrangling
 
@@ -336,7 +333,7 @@ Using all 3 tables of the dataset.
   
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_3_result.png)  
 
-> The team has lowest performance is "ASL" with the volume "39000" and the category that contributes is "PXXXXXF".  
+> The team has lowest performance is "ASL" with the volume "39000" and the category that contributes is "PXXXXXF". "ASL" should have a plan to improve performance  
 
 ### 4/ Find the contribution of source_ids of refund transactions (payment_group = ‘refund’), what is the source_id with the highest contribution?  
 <details>

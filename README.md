@@ -325,9 +325,19 @@ Using all 3 tables of the dataset.
  
   ```python
   df_low = payment_enriched[payment_enriched['report_month'] >= '2023-04']
-  df_low = df_low.sort_values(by=['volume'], ascending=True)
   
-  df_low
+  
+  team_volume = df_low.groupby('team_own')['volume'].sum().reset_index()
+  lowest_performing_team = team_volume.sort_values(by='volume', ascending=True).iloc[0]
+  
+  print(f"Lowest performing team since Q2.2023: {lowest_performing_team['team_own']} with total volume {lowest_performing_team['volume']}")
+  
+  
+  lowest_team_df = df_low[df_low['team_own'] == lowest_performing_team['team_own']]
+  category_contribution = lowest_team_df.groupby('category')['volume'].sum().reset_index()
+  least_contributing_category = category_contribution.sort_values(by='volume', ascending=True).iloc[0]
+  
+  print(f"Category contributing the least to {lowest_performing_team['team_own']}: {least_contributing_category['category']} with total volume {least_contributing_category['volume']}")
   ```
 </details>  
   

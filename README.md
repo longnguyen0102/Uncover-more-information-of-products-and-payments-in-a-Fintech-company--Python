@@ -266,7 +266,8 @@ Using all 3 tables of the dataset.
 > Data in table *df_transactions* has 3 columns with wrong data type, I suggest we can change:  
 >  - timeStamp -> change to datetime data type.  
 >  - sender_id -> change to int64 data type.  
->  - receiver_id -> change to int64 data type.  
+>  - receiver_id -> change to int64 data type.
+> 
 > In addition, the 3 columns of *df_transactions* also have missing values:  
 >  - sender_id -> need to validate data with data provider/ fill up data according to extra_info (if available).  
 >  - receiver_id -> need to validate data with data provider/ fill up data according to extra_info (if available).  

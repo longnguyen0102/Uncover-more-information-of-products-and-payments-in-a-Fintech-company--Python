@@ -263,11 +263,11 @@ Using all 3 tables of the dataset.
 
 ### Briefing of dataframe:  
 
-Dataframe ***df_payment_report***:
+<p> Dataframe ***df_payment_report***:
 1. **Structure:** The dataframe has 5 columns ('report_month', 'payment_group', 'product_id', 'source_id', 'volume') and 919 rows.  
 2. **Data quality:** There are no missing values and duplicated rows among columns.  
 3. **Identified issues:** 'report_month' has string datatype, it can be changed to datetime for easy analysis in time point-of-view.  
-4. **Observations:** The percentage of unique values in each column is acceptable. No action needed.
+4. **Observations:** The percentage of unique values in each column is acceptable. No action needed. </p>
  
 Dataframe ***df_product***:
 1. **Structure:** The dataframe has 3 columns ('product_id', 'category', 'team_own') and 492 rows.  
@@ -275,7 +275,7 @@ Dataframe ***df_product***:
 3. **Unique values:**  
   *   'team_own' has about 3 unique values, meaning only 3 teams owning all products.  
   *   There are about 17 unique values in 'category'.  
- *   17 categories have total 492 products (~0.2%).  
+  *   17 categories have total 492 products (~0.2%).  
 4. **Observations:** Dataframe has a well structure. No interfere actions needed.
  
  Data in table ***df_transactions***:

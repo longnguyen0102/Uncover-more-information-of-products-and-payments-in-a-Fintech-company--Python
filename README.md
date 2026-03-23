@@ -263,32 +263,31 @@ Using all 3 tables of the dataset.
 
 ### Briefing of dataframe:  
 
-> Dataframe ***df_payment_report***:
-> 1. **Structure:** The dataframe has 5 columns ('report_month', 'payment_group', 'product_id', 'source_id', 'volume') and 919 rows.  
-> 2. **Data quality:** There are no missing values and duplicated rows among columns.  
-> 3. **Identified issues:** 'report_month' has string datatype, it can be changed to datetime for easy analysis in time point-of-view.  
-> 4. **Observations:** The percentage of unique values in each column is acceptable. No action needed.
-> 
-> Dataframe ***df_product***:
-> 1. **Structure:** The dataframe has 3 columns ('product_id', 'category', 'team_own') and 492 rows.  
-> 2. **Data quality:** There are no missing values and duplicated rows among columns.  
-> 3. **Unique values:**  
-> *   'team_own' has about 3 unique values, meaning only 3 teams owning all products.  
-> *   There are about 17 unique values in 'category'.  
-> *   17 categories have total 492 products (~0.2%).  
-> 4. **Observations:** Dataframe has a well structure. No interfere actions needed.
-> 
-> Data in table ***df_transactions***:
-> 1. **Structure:** The dataframe has 10 columns and 1,324,002 rows.  
-> 2. **Data quality:** There are no missing values and duplicated rows among columns.  
->
-> *   **Duplicates:** There are 28 duplicated rows, they need to be removed for the correct calculation.  
-> *   **Data type:** *timeStamp* should not be in int64 type, it needs to be changed to datetime data type same as 'report_month' of ***df_payment_report***. 'sender_id' and *receiver_id* should be > changed to int64.  
-> 3. **Missing values:**  
-> *   'extra_info' missing more than 99.5% (almost empty).  
-> *   'receiver_id' missing 12.4%.  
-> *   'sender_id' missing 3.7%.  
-> 4. **Observations:** Most columns has low percentage of unique values except of 'transaction_id' and 'timeStamp' (~99.9%).
+Dataframe ***df_payment_report***:
+1. **Structure:** The dataframe has 5 columns ('report_month', 'payment_group', 'product_id', 'source_id', 'volume') and 919 rows.  
+2. **Data quality:** There are no missing values and duplicated rows among columns.  
+3. **Identified issues:** 'report_month' has string datatype, it can be changed to datetime for easy analysis in time point-of-view.  
+4. **Observations:** The percentage of unique values in each column is acceptable. No action needed.
+ 
+Dataframe ***df_product***:
+1. **Structure:** The dataframe has 3 columns ('product_id', 'category', 'team_own') and 492 rows.  
+2. **Data quality:** There are no missing values and duplicated rows among columns.  
+3. **Unique values:**  
+  *   'team_own' has about 3 unique values, meaning only 3 teams owning all products.  
+  *   There are about 17 unique values in 'category'.  
+ *   17 categories have total 492 products (~0.2%).  
+4. **Observations:** Dataframe has a well structure. No interfere actions needed.
+ 
+ Data in table ***df_transactions***:
+ 1. **Structure:** The dataframe has 10 columns and 1,324,002 rows.  
+ 2. **Data quality:** There are no missing values and duplicated rows among columns.  
+ *   **Duplicates:** There are 28 duplicated rows, they need to be removed for the correct calculation.  
+ *   **Data type:** 'timeStamp' should not be in int64 type, it needs to be changed to datetime data type same as 'report_month' of ***df_payment_report***. 'sender_id' and 'receiver_id' should be changed to int64.  
+ 3. **Missing values:**  
+ *   'extra_info' missing more than 99.5% (almost empty).
+ *   'receiver_id' missing 12.4%.
+ *   'sender_id' missing 3.7%.  
+ 4. **Observations:** Most columns has low percentage of unique values except of 'transaction_id' and 'timeStamp' (~99.9%).
 
 <details>
   <summary><em>💾 Create dataframe payment_enriched:</em></summary>

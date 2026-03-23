@@ -269,17 +269,31 @@ Using all 3 tables of the dataset.
 > 3. **Identified issues:** 'report_month' has string datatype, it can be changed to datetime for easy analysis in time point-of-view.  
 > 4. **Observations:** The percentage of unique values in each column is acceptable. No action needed.
 > 
-> Data in table ***df_product*** has 3 columns and 492 records, all of them are in correct data types. Also, the table has 0% of missing values and 0% of duplicated values. No actions needed.  
-> Data in table ***df_transactions*** has 3 columns with wrong data type, I suggest we can change:  
->  - timeStamp -> change to datetime data type.  
->  - sender_id -> change to int64 data type.  
->  - receiver_id -> change to int64 data type.
+> Dataframe ***df_product***:
+> 1. **Structure:** The dataframe has 3 columns ('product_id', 'category', 'team_own') and 492 rows.  
+> 2. **Data quality:** There are no missing values and duplicated rows among columns.  
+> 3. **Unique values:**  
+>
+> *   'team_own' has about 3 unique values, meaning only 3 teams owning all products.  
+> *   There are about 17 unique values in 'category'.  
+> *   17 categories have total 492 products (~0.2%).  
+>
+> 4. **Observations:** Dataframe has a well structure. No interfere actions needed.
 > 
-> In addition, the 3 columns of ***df_transactions*** also have missing values:  
->  - sender_id -> need to validate data with data provider/ fill up data according to extra_info (if available).  
->  - receiver_id -> need to validate data with data provider/ fill up data according to extra_info (if available).  
->  - extra_info -> need to validate data with data provider/ fill up data according to sender_id (if available).  
-> As can see from the table above, there are 28 rows with duplicated data. They are from "extra_info" column and they are missing values. In this case, we will use method from "Handle missing values" part and no need to drop these rows.     
+> Data in table ***df_transactions***:
+> 1. **Structure:** The dataframe has 10 columns and 1,324,002 rows.  
+> 2. **Data quality:** There are no missing values and duplicated rows among columns.  
+>
+> *   **Duplicates:** There are 28 duplicated rows, they need to be removed for the correct calculation.  
+> *   **Data type:** *timeStamp* should not be in int64 type, it needs to be changed to datetime data type same as 'report_month' of ***df_payment_report***. 'sender_id' and *receiver_id* should be > changed to int64.  
+>
+> 3. **Missing values:**  
+>
+> *   'extra_info' missing more than 99.5% (almost empty).  
+> *   'receiver_id' missing 12.4%.  
+> *   'sender_id' missing 3.7%.  
+>
+> 4. **Observations:** Most columns has low percentage of unique values except of 'transaction_id' and 'timeStamp' (~99.9%).
 
 <details>
   <summary><em>💾 Create dataframe payment_enriched:</em></summary>

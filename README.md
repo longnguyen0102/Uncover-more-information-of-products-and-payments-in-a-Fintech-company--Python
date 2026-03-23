@@ -290,7 +290,7 @@ Using all 3 tables of the dataset.
 >    4. **Observations:** Most columns has low percentage of unique values except of 'transaction_id' and 'timeStamp' (~99.9%).
 
 <details>
-  <summary><em>💾 Convert datatype of 'timeStamp', 'sender_id', 'receiver_id' and create dataframe *payment_enriched*:</em></summary>
+  <summary><em>💾 Convert datatype of 'timeStamp', 'sender_id', 'receiver_id' and create dataframe payment_enriched:</em></summary>
  
   ```python
   # Convert timeStamp to datetime

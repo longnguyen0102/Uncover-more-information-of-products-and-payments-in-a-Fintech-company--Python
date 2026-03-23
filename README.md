@@ -98,7 +98,7 @@ Using all 3 tables of the dataset.
   <summary><em>Import libraries and dataset, copy dataset, and explore tables:</em></summary>
   
   ```python
-  # import libraries
+  # import library
   import pandas as pd
   import numpy as np
   from google.colab import drive
@@ -114,7 +114,7 @@ Using all 3 tables of the dataset.
   payment_report = pd.read_csv(path_payment_report)
   product = pd.read_csv(path_product)
   transactions = pd.read_csv(path_transactions)
-  
+    
   # copy dataset
   df_payment_report = payment_report
   df_product = product
@@ -127,6 +127,7 @@ Using all 3 tables of the dataset.
   
   # show rows and columns count
   print(f'Rows count: {df_payment_report.shape[0]}\nColums count: {df_payment_report.shape[1]}')
+  print('')
   
   # show data type
   df_payment_report.info()
@@ -134,36 +135,37 @@ Using all 3 tables of the dataset.
   # further checking on columns
   df_payment_report.shape
   df_payment_report.describe()
-
-   # check null values
-   df_payment_report.isnull().sum()
-    
-   # check unique values
-   num_unique = df_payment_report.nunique().sort_values()
-   print('---Percentage of unique values (%)---')
-   print(100/num_unique)
-    
-   # check missing data
-   missing_value = df_payment_report.isnull().sum().sort_values(ascending = False)
-   missing_percent = df_payment_report.isnull().mean().sort_values(ascending = False)
-   print('')
-   print('---Number of missing values in each column---')
-   print(missing_value)
-   print('')
-   print('---Percentage of missing values (%)---')
-   if missing_percent.sum():
-     print(missing_percent[missing_percent > 0] * 100)
-   else:
-     print('None')
-    
-   # check for duplicates
-   ## show number of duplicated rows
-   print('')
-   print(f'Number of entirely duplicated rows: {df_payment_report.duplicated().sum()}')
-   ## show all duplicated rows
-   df_payment_report[df_payment_report.duplicated()]
+  
+  # check null values
+  df_payment_report.isnull().sum()
+  
+  # check unique values
+  num_unique = df_payment_report.nunique().sort_values()
+  print('')
+  print('---Percentage of unique values (%)---')
+  print(100/num_unique)
+  
+  # check missing data
+  missing_value = df_payment_report.isnull().sum().sort_values(ascending = False)
+  missing_percent = df_payment_report.isnull().mean().sort_values(ascending = False)
+  print('')
+  print('---Number of missing values in each column---')
+  print(missing_value)
+  print('')
+  print('---Percentage of missing values (%)---')
+  if missing_percent.sum():
+    print(missing_percent[missing_percent > 0] * 100)
+  else:
+    print('None')
+  
+  # check for duplicates
+  ## show number of duplicated rows
+  print('')
+  print(f'Number of entirely duplicated rows: {df_payment_report.duplicated().sum()}')
+  ## show all duplicated rows
+  df_payment_report[df_payment_report.duplicated()]
   ```  
-  <img src="https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_payment_report_eda_1.png" width="50%"/><img src="https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_payment_report_eda_2.png" width="50%"/>
+  <img src="https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_payment_report_eda.png"/>
 
   ## Understand about data type / data value and checking unique & missing values of *df_product*:  
    ```python
@@ -171,6 +173,7 @@ Using all 3 tables of the dataset.
   
   # show rows and columns count
   print(f'Rows count: {df_product.shape[0]}\nColums count: {df_product.shape[1]}')
+  print('')
   
   # show data type
   df_product.info()
@@ -178,12 +181,13 @@ Using all 3 tables of the dataset.
   # further checking on columns
   df_product.shape
   df_product.describe()
-
-   # check null values
+  
+  # check null values
   df_product.isnull().sum()
   
   # check unique values
   num_unique = df_product.nunique().sort_values()
+  print('')
   print('---Percentage of unique values (%)---')
   print(100/num_unique)
   
@@ -207,7 +211,7 @@ Using all 3 tables of the dataset.
   ## show all duplicated rows
   df_product[df_product.duplicated()]
   ```  
-  <img src="https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_product_eda_1.png" width="50%"/><img src="https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_product_eda_2.png" width="50%"/>
+  <img src="https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_product_eda.png"/>
 
   ## Understand about data type / data value and checking unique & missing values of *df_transactions*:  
   ```python
@@ -215,6 +219,7 @@ Using all 3 tables of the dataset.
   
   # show rows and columns count
   print(f'Rows count: {df_transactions.shape[0]}\nColums count: {df_transactions.shape[1]}')
+  print('')
   
   # show data type
   df_transactions.info()
@@ -222,12 +227,13 @@ Using all 3 tables of the dataset.
   # further checking on columns
   df_transactions.shape
   df_transactions.describe()
-
+  
   # check null values
   df_transactions.isnull().sum()
   
   # check unique values
   num_unique = df_transactions.nunique().sort_values()
+  print('')
   print('---Percentage of unique values (%)---')
   print(100/num_unique)
   
@@ -245,27 +251,31 @@ Using all 3 tables of the dataset.
     print('None')
   
   # check for duplicates
-  ## show number of duplicated rows
   print('')
   print(f'Number of entirely duplicated rows: {df_transactions.duplicated().sum()}')
   ## show all duplicated rows
   df_transactions[df_transactions.duplicated()]
   ```  
-  ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_transactions_eda_1.png)
+  ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_transactions_eda_1.png)  
   ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_transactions_eda_2.png)  
   
 </details>
 
 ### Briefing of dataframe:  
 
-> Data in table *df_payment_report* has 5 columns and 919 records, all of them are in correct data types. The table has 0% of missing values and 0% of duplicated values. No actions needed.  
-> Data in table *df_product* has 3 columns and 492 records, all of them are in correct data types. Also, the table has 0% of missing values and 0% of duplicated values. No actions needed.  
-> Data in table *df_transactions* has 3 columns with wrong data type, I suggest we can change:  
+> Dataframe ***df_payment_report***:
+> 1. **Structure:** The dataframe has 5 columns ('report_month', 'payment_group', 'product_id', 'source_id', 'volume') and 919 rows.  
+> 2. **Data quality:** There are no missing values and duplicated rows among columns.  
+> 3. **Identified issues:** 'report_month' has string datatype, it can be changed to datetime for easy analysis in time point-of-view.  
+> 4. **Observations:** The percentage of unique values in each column is acceptable. No action needed.
+> 
+> Data in table ***df_product*** has 3 columns and 492 records, all of them are in correct data types. Also, the table has 0% of missing values and 0% of duplicated values. No actions needed.  
+> Data in table ***df_transactions*** has 3 columns with wrong data type, I suggest we can change:  
 >  - timeStamp -> change to datetime data type.  
 >  - sender_id -> change to int64 data type.  
 >  - receiver_id -> change to int64 data type.
 > 
-> In addition, the 3 columns of *df_transactions* also have missing values:  
+> In addition, the 3 columns of ***df_transactions*** also have missing values:  
 >  - sender_id -> need to validate data with data provider/ fill up data according to extra_info (if available).  
 >  - receiver_id -> need to validate data with data provider/ fill up data according to extra_info (if available).  
 >  - extra_info -> need to validate data with data provider/ fill up data according to sender_id (if available).  

@@ -290,19 +290,29 @@ Using all 3 tables of the dataset.
 >    4. **Observations:** Most columns has low percentage of unique values except of 'transaction_id' and 'timeStamp' (~99.9%).
 
 <details>
-  <summary><em>💾 Create dataframe payment_enriched:</em></summary>
+  <summary><em>💾 Convert datatype of 'timeStamp', 'sender_id', 'receiver_id' and create dataframe *payment_enriched*:</em></summary>
  
   ```python
+  # Convert timeStamp to datetime
+  df_transactions['timeStamp'] = pd.to_datetime(df_transactions['timeStamp'], unit='ms')
+  
+  # Convert sender_id and receiver_id to Int64
+  df_transactions['sender_id'] = df_transactions['sender_id'].astype('Int64')
+  df_transactions['receiver_id'] = df_transactions['receiver_id'].astype('Int64')
+  ```
+
+  ```python
+  # Create dataFrame payment_enriched
   payment_enriched = df_payment_report.merge(df_product, on='product_id', how='left')
   payment_enriched.info()
-  ```   
+  ```
     
   ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_create_df_payment_enriched.png)  
 
 </details>  
 
 ### Purpose of merging 2 dataframes:  
-> Merging 2 dataframes payment_report and product for further analysis in products, team performance. The purpose of this merge is to combine the payment volume data with detailed product information. This will help further analysis with richer information.  
+> Merging 2 dataframes payment_report and product for further analysis in products, team performance. The purpose of this merge is to combine the payment volume data with detailed product information. This will help further analysis with richer information.
 ## 2️⃣ Data wrangling
 
 ### 1/ Top 3 product_ids with the highest volume.  
@@ -311,9 +321,7 @@ Using all 3 tables of the dataset.
  
   ```python
   df_top_3 = df_payment_report.groupby('product_id')['volume'].sum().reset_index()
-  
   df_top_3 = df_top_3.sort_values(by=['volume'], ascending=False)
-  
   df_top_3.head(3)
   ```
 </details>  

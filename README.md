@@ -95,7 +95,7 @@ Using all 3 tables of the dataset.
 
 ## 1️⃣ EDA
 <details>
-  <summary><em>Import libraries and dataset, copy dataset, and explore tables:</em></summary>
+  <summary>💾 <em>Import libraries and dataset, copy dataset, and explore tables:</em></summary>
   
   ```python
   # import library
@@ -264,7 +264,7 @@ Using all 3 tables of the dataset.
 ### Briefing of dataframe:  
 
 > #### Dataframe ***df_payment_report***:  
->   1. **Structure:** The dataframe has 5 columns ('report_month', 'payment_group', 'product_id', 'source_id', 'volume') and 919 rows.  
+>   1. **Structure:** The dataframe has 5 columns (`report_month`, 'payment_group', 'product_id', 'source_id', 'volume') and 919 rows.  
 >   2. **Data quality:** There are no missing values and duplicated rows among columns.  
 >   3. **Identified issues:** 'report_month' has string datatype, it can be changed to datetime for easy analysis in time point-of-view.  
 >   4. **Observations:** The percentage of unique values in each column is acceptable. No action needed. 
@@ -290,7 +290,7 @@ Using all 3 tables of the dataset.
 >    4. **Observations:** Most columns has low percentage of unique values except of 'transaction_id' and 'timeStamp' (~99.9%).
 
 <details>
-  <summary><em>💾 Convert datatype of 'timeStamp', 'sender_id', 'receiver_id' and create dataframe payment_enriched:</em></summary>
+  <summary>💾 <em>Convert datatype of 'timeStamp', 'sender_id', 'receiver_id' and create dataframe payment_enriched:</em></summary>
  
   ```python
   # Convert timeStamp to datetime

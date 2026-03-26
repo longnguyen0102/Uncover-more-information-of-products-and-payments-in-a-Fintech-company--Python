@@ -344,13 +344,14 @@ Using all 3 tables of the dataset.
   else:
       display(duplicated_product_metadata)
   ```
-  ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_2_result_1.png)
  
   ```python
   df_1_product_1_team = payment_enriched.groupby('product_id')['team_own'].nunique().reset_index()  
   df_1_product_1_team[df_1_product_1_team['team_own'] != 1]
   ```
 </details>  
+
+![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_2_result_1.png)
   
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_2_result_2.png)  
 

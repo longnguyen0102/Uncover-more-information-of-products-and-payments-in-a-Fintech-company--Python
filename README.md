@@ -95,7 +95,7 @@ Using all 3 tables of the dataset.
 
 ## 1️⃣ EDA
 <details>
-  <summary>💾 <em>Import libraries and dataset, copy dataset, and explore tables:</em></summary>
+  <summary>💾 <em>Import libraries and dataset, copy dataset, and explore tables</em></summary>
   
   ```python
   # import library
@@ -290,7 +290,7 @@ Using all 3 tables of the dataset.
 >    4. **Observations:** Most columns has low percentage of unique values except of `transaction_id` and `timeStamp` (~99.9%).
 
 <details>
-  <summary>💾 <em>Convert datatype and create dataframe payment_enriched:</em></summary>
+  <summary>💾 <em>Convert datatype and create dataframe payment_enriched</em></summary>
  
   ```python
   # Convert timeStamp to datetime
@@ -317,7 +317,7 @@ Using all 3 tables of the dataset.
 
 ### 1/ Top 3 product_ids with the highest volume.  
 <details>
-  <summary><em>Code:</em></summary>
+  <summary><em>Code</em></summary>
  
   ```python
   df_top_3 = df_payment_report.groupby('product_id')['volume'].sum().reset_index()
@@ -334,7 +334,7 @@ Using all 3 tables of the dataset.
 
 ### 2/ Given that 1 product_id is only owed by 1 team, are there any abnormal products against this rule?  
 <details>
-  <summary><em>Code:</em></summary>
+  <summary><em>Code</em></summary>
 
   ```python
   # Double-check: Ensure no product_id is duplicated in the original product table
@@ -351,9 +351,9 @@ Using all 3 tables of the dataset.
   ```
 </details>  
 
+![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_2_result_2.png)
+
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_2_result_1.png)
-  
-![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_2_result_2.png)  
 
 > 1.  **Missing Mappings:** Products with id **3**, **1976**, and **10033** are owned by no team. This indicates these products are present in the `payment_report` but do not have a corresponding entry in the `product` lookup table (resulting in NaNs after the left join).  
 > 2.  **No Duplicated Ownership:** There are no products with a `team_own` count greater than 1. This means the rule that 'one product is owned by only one team' is technically followed for all identified products.
@@ -361,7 +361,7 @@ Using all 3 tables of the dataset.
 
 ### 3/ Find the team has had the lowest performance (lowest volume) since Q2.2023. Find the category that contributes the least to that team.
 <details>
-  <summary><em>Code:</em></summary>
+  <summary><em>Code</em></summary>
  
   ```python
   df_low = payment_enriched[payment_enriched['report_month'] >= '2023-04']
@@ -393,7 +393,7 @@ Using all 3 tables of the dataset.
 
 ### 4/ Find the contribution of source_ids of refund transactions (payment_group = ‘refund’), what is the source_id with the highest contribution?  
 <details>
-  <summary><em>Code:</em></summary>
+  <summary><em>Code</em></summary>
  
   ```python
   payment_report_refund = df_payment_report[payment_report.payment_group == 'refund']
@@ -420,7 +420,7 @@ Using all 3 tables of the dataset.
 ### - transType = 8 & others merchant_id: Split Bill Transaction  
 ### - Remained cases are invalid transactions  
 <details>
-  <summary><em>Code:</em></summary>
+  <summary><em>Code</em></summary>
  
   ```python
   def trans_type(row):
@@ -455,7 +455,7 @@ Using all 3 tables of the dataset.
   
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_5_result_1.png)  
 
-<detail>
+<details>
   <summary><em>Summary of types of transactions</em></summary>
 
   ```python
@@ -471,7 +471,7 @@ Using all 3 tables of the dataset.
   display(transaction_summary)
   ```
 
-</detail>
+</details>
 
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_5_result_2.png)
 

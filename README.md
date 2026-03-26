@@ -404,9 +404,9 @@ Using all 3 tables of the dataset.
   
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_4_result.png)
 
-> 1. **38** has the most volume (**36,527,454,759**) which is twice bigger than the second place (**39**) with **16,119,058,662**.
-> 2. The volume of these 3 source_id has a big gap between them.
-> 3.  Suggestion:
+> 1. **38** has the most volume (**36,527,454,759**) which is twice bigger than the second place (**39**) with **16,119,058,662**.  
+> 2. The volume of these 3 source_id has a big gap between them.  
+> 3.  Suggestion:  
 >   *   Further checking on top 3 of source_id to identify the causes of refund: system error, payment error, etc.
 >   *   Compare with 'volume' to identify the percentage of refund in order to evaluate the risk and operating eficiency.
 

@@ -499,9 +499,9 @@ Using all 3 tables of the dataset.
   
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_6_result_2.png)
 
-> 1. **Top Up Money Transacton** has the most volume with **108,606,478,829**, however it is on second place of unique senders (**110,409**) and receivers (**110,409**). This is the most important activity in an e-wallet company.  
-> 2. The most number is **Payment Transaction** with **398,677** transcations. It has the total volume of **71,851,515,181**. However, everyone still use this transaction the most with **139583** of senders and **113298** of receivers.  
-> 3. **Split Bill Transaction** is the least of all with **1376** transactions, **4,901,464** of volume, **1323** senders and **572** receivers. This function is not preferred.
+> 1. **Top Up Money Transacton** has the most volume with **108,606,478,829** however it is on second place of unique senders (**110,409**) and receivers (**110,409**). This is the most important activity in an e-wallet company.  
+> 2. The most number is **Payment Transaction** with **398,677** transcations. It has the total volume of **71,851,515,181**. However, everyone still use this transaction the most with **139,583** of senders and **113,298** of receivers.  
+> 3. **Split Bill Transaction** is the least of all with **1376** transactions, **4,901,464** of volume, **1,323** senders and **572** receivers. This function is not preferred.
 
 ## 📌 Key Takeaways:  
 ✔️ Understanding the basics and uses of Python in exploring and extracting data.  

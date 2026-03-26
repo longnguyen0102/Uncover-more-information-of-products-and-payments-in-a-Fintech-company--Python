@@ -1,7 +1,7 @@
 # Uncover more information of products and payments in a Fintech company | Python
 
 Please check the coding below or access via the link below:  
-🔗 https://colab.research.google.com/drive/1bqe2NRXETMsebmrjdtP1TmfiAxG1UJj5?usp=sharing 🔗     
+🔗 https://colab.research.google.com/drive/1FDTP54h4bLCYbzEivpY7r5MGFY6YfzUR?usp=sharing 🔗     
 
 Author: Nguyễn Hải Long  
 Date: 2025-04  

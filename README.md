@@ -36,7 +36,7 @@ Tools Used: Python
 ## 📂 Dataset Description & Data Structure  
 
 ### 📌 Data Source  
-- Size: The dataset has 3 tables: payment_report (5 columns, 919 rows), product (3 columns, 492 rows), and transactions (9 columns, 1324002 rows).
+- Size: The dataset has 3 tables: ***payment_report*** (5 columns, 919 rows), ***product*** (3 columns, 492 rows), and ***transactions*** (9 columns, 1,324,002 rows).
 - Format: .csv
 
 ### 📊 Data Structure & Relationships  

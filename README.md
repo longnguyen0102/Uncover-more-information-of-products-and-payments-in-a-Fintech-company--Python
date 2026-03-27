@@ -18,7 +18,6 @@ Tools Used: Python
 
 ## 📌 Background & Overview  
 
-### Objective:
 ### 📖 What is this project about?  
 
 - This analysis is based on a dataset consisting of three CSV files.

@@ -269,24 +269,24 @@ Using all 3 tables of the dataset.
    4. **Observations:** The percentage of unique values in each column is acceptable. No action needed. 
  
   #### Data frame ***df_product***:  
-    1. **Structure:** The data frame has 3 columns (`product_id`, `category`, `team_own`) and 492 rows.  
-    2. **Data quality:** There are no missing values and duplicated rows among columns.  
-    3. **Unique values:**  
-      *   `team_own` has about 3 unique values, meaning only 3 teams owning all products.  
-      *   There are about 17 unique values in `category`.  
-      *   17 categories have total 492 products (~0.2%).  
-    4. **Observations:** Data frame has a well structure. No interfere actions needed.
+   1. **Structure:** The data frame has 3 columns (`product_id`, `category`, `team_own`) and 492 rows.  
+   2. **Data quality:** There are no missing values and duplicated rows among columns.  
+   3. **Unique values:**  
+     *   `team_own` has about 3 unique values, meaning only 3 teams owning all products.  
+     *   There are about 17 unique values in `category`.  
+     *   17 categories have total 492 products (~0.2%).  
+   4. **Observations:** Data frame has a well structure. No interfere actions needed.
  
   #### Data frame ***df_transactions***:  
-    1. **Structure:** The data frame has 10 columns and 1,324,002 rows.  
-    2. **Data quality:** There are no missing values and duplicated rows among columns.  
-       *   **Duplicates:** There are 28 duplicated rows, they need to be removed for the correct calculation.  
-       *   **Data type:** `timeStamp` should not be in int64 type, it needs to be changed to datetime data type same as `report_month` of ***df_payment_report***. `sender_id` and `receiver_id` should be changed to int64.  
-    3. **Missing values:**  
-       *   `extra_info` missing more than 99.5% (almost empty).
-       *   `receiver_id` missing 12.4%.
-       *   `sender_id` missing 3.7%. 
-    4. **Observations:** Most columns has low percentage of unique values except of `transaction_id` and `timeStamp` (~99.9%).
+   1. **Structure:** The data frame has 10 columns and 1,324,002 rows.  
+   2. **Data quality:** There are no missing values and duplicated rows among columns.  
+      *   **Duplicates:** There are 28 duplicated rows, they need to be removed for the correct calculation.  
+      *   **Data type:** `timeStamp` should not be in int64 type, it needs to be changed to datetime data type same as `report_month` of ***df_payment_report***. `sender_id` and `receiver_id` should be changed to int64.  
+   3. **Missing values:**  
+      *   `extra_info` missing more than 99.5% (almost empty).
+      *   `receiver_id` missing 12.4%.
+      *   `sender_id` missing 3.7%. 
+   4. **Observations:** Most columns has low percentage of unique values except of `transaction_id` and `timeStamp` (~99.9%).
 
 <details>
   <summary>💾 <em>Convert datatype and create data frame payment_enriched</em></summary>
@@ -311,7 +311,7 @@ Using all 3 tables of the dataset.
 </details>  
 
 ### Purpose of merging 2 data frames:  
-> Merging 2 data frames ***df_payment_report*** and ***df_product*** for further analysis in products, team performance. The purpose of this merge is to combine the payment volume data with detailed product information. This will help further analysis with richer information.
+Merging 2 data frames ***df_payment_report*** and ***df_product*** for further analysis in products, team performance. The purpose of this merge is to combine the payment volume data with detailed product information. This will help further analysis with richer information.
 ## 2️⃣ Data wrangling
 
 ### 1/ Top 3 product_ids with the highest volume.  
@@ -327,9 +327,9 @@ Using all 3 tables of the dataset.
   
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_1_result.png)  
 
-> 1.  **1976** is the clear leader, with a total volume exceeding **61.7 billion**. This suggests it is likely a core service or a highly popular utility within the e-wallet ecosystem.  
-> 2.  Follow up are **429** and **372** both contributing significantly with volumes around **14.6 billion** and **13.7 billion** respectively.  
-> 3.  **Concentration:** There is a very large gap between the top product and the runners-up, indicating that the company's transaction volume is heavily concentrated in a few key products.  
+1.  **1976** is the clear leader, with a total volume exceeding **61.7 billion**. This suggests it is likely a core service or a highly popular utility within the e-wallet ecosystem.  
+2.  Follow up are **429** and **372** both contributing significantly with volumes around **14.6 billion** and **13.7 billion** respectively.  
+3.  **Concentration:** There is a very large gap between the top product and the runners-up, indicating that the company's transaction volume is heavily concentrated in a few key products.  
 
 ### 2/ Given that 1 product_id is only owed by 1 team, are there any abnormal products against this rule?  
 <details>
@@ -354,9 +354,9 @@ Using all 3 tables of the dataset.
 
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_2_result_1.png)
 
-> 1.  **Missing Mappings:** Products with id **3**, **1976**, and **10033** are owned by no team. This indicates these products are present in the `payment_report` but do not have a corresponding entry in the `product` lookup table (resulting in NaNs after the left join).  
-> 2.  **No Duplicated Ownership:** There are no products with a `team_own` count greater than 1. This means the rule that 'one product is owned by only one team' is technically followed for all identified products.
-> 3.  **Action:** We should investigate the metadata for products **3, 1976, and 10033** to ensure they are assigned to the correct teams, as they currently lack ownership information in our analysis.  
+1.  **Missing Mappings:** Products with id **3**, **1976**, and **10033** are owned by no team. This indicates these products are present in the `payment_report` but do not have a corresponding entry in the `product` lookup table (resulting in NaNs after the left join).  
+2.  **No Duplicated Ownership:** There are no products with a `team_own` count greater than 1. This means the rule that 'one product is owned by only one team' is technically followed for all identified products.
+3.  **Action:** We should investigate the metadata for products **3, 1976, and 10033** to ensure they are assigned to the correct teams, as they currently lack ownership information in our analysis.  
 
 ### 3/ Find the team has had the lowest performance (lowest volume) since Q2.2023. Find the category that contributes the least to that team.
 <details>
@@ -387,8 +387,8 @@ Using all 3 tables of the dataset.
   
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_3_result.png)  
 
-> 1.   Underperformance of APS: The **APS** team stands out as having the lowest overall payment volume (**51,141,753**) compared to other teams since Q2.2023. This is a critical area for investigation. Comparing to the ASD - the highest performing team - with total volume of **31.09 billion**.  
-> 2.   The **PXXXXXE** category is the weakest link, generating the lowest volume (**25,232,438**) compares to **21.3 billion** of **PXXXXXB**. This suggests that the products or services within this category might be struggling, or there might be issues with their marketing, user experience, or competitive positioning.  
+1.   Underperformance of APS: The **APS** team stands out as having the lowest overall payment volume (**51,141,753**) compared to other teams since Q2.2023. This is a critical area for investigation. Comparing to the ASD - the highest performing team - with total volume of **31.09 billion**.  
+2.   The **PXXXXXE** category is the weakest link, generating the lowest volume (**25,232,438**) compares to **21.3 billion** of **PXXXXXB**. This suggests that the products or services within this category might be struggling, or there might be issues with their marketing, user experience, or competitive positioning.  
 
 ### 4/ Find the contribution of source_ids of refund transactions (payment_group = ‘refund’), what is the source_id with the highest contribution?  
 <details>
@@ -404,11 +404,11 @@ Using all 3 tables of the dataset.
   
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_4_result.png)
 
-> 1. **38** has the most volume (**36,527,454,759**) which is twice bigger than the second place (**39**) with **16,119,058,662**.  
-> 2. The volume of these 3 source_id has a big gap between them.  
-> 3.  Suggestion:  
->   *   Further checking on top 3 of source_id to identify the causes of refund: system error, payment error, etc.
->   *   Compare with 'volume' to identify the percentage of refund in order to evaluate the risk and operating eficiency.
+1. **38** has the most volume (**36,527,454,759**) which is twice bigger than the second place (**39**) with **16,119,058,662**.  
+2. The volume of these 3 source_id has a big gap between them.  
+3.  Suggestion:  
+  *   Further checking on top 3 of source_id to identify the causes of refund: system error, payment error, etc.
+  *   Compare with 'volume' to identify the percentage of refund in order to evaluate the risk and operating eficiency.
 
 ### 5/ Define type of transactions `transaction_type` for each row, given:  
 ### - transType = 2 & merchant_id = 1205: Bank Transfer Transaction  
@@ -474,9 +474,9 @@ Using all 3 tables of the dataset.
 
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_5_result_2.png)
 
-> 1. **Invalid Transaction** has about **21.94%**, this means there might be an error during payment process or problems with data collecting process.  
-> 2. **Bank Transfer Transaction** and **Withdraw Money Transaction** are almost the same ration (**~2.86%** and **~2.54**). These numbers show the "green flag" from customers about the company.  
-> 3. When looking at 'total_volume' and 'count'columns, **Bank Transger Transaction** has the most average amount for each transaction. Second place is **Top Up Money Transaction**.  
+1. **Invalid Transaction** has about **21.94%**, this means there might be an error during payment process or problems with data collecting process.  
+2. **Bank Transfer Transaction** and **Withdraw Money Transaction** are almost the same ration (**~2.86%** and **~2.54**). These numbers show the "green flag" from customers about the company.  
+3. When looking at 'total_volume' and 'count'columns, **Bank Transger Transaction** has the most average amount for each transaction. Second place is **Top Up Money Transaction**.  
 
 ### 6/ Of each transaction type (excluding invalid transactions): find the number of transactions, volume, senders and receivers.  
 <details>
@@ -499,9 +499,9 @@ Using all 3 tables of the dataset.
   
 ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_6_result_2.png)
 
-> 1. **Top Up Money Transacton** has the most volume with **108,606,478,829** however it is on second place of unique senders (**110,409**) and receivers (**110,409**). This is the most important activity in an e-wallet company.  
-> 2. The most number is **Payment Transaction** with **398,677** transcations. It has the total volume of **71,851,515,181**. However, everyone still use this transaction the most with **139,583** of senders and **113,298** of receivers.  
-> 3. **Split Bill Transaction** is the least of all with **1376** transactions, **4,901,464** of volume, **1,323** senders and **572** receivers. This function is not preferred.
+1. **Top Up Money Transacton** has the most volume with **108,606,478,829** however it is on second place of unique senders (**110,409**) and receivers (**110,409**). This is the most important activity in an e-wallet company.  
+2. The most number is **Payment Transaction** with **398,677** transcations. It has the total volume of **71,851,515,181**. However, everyone still use this transaction the most with **139,583** of senders and **113,298** of receivers.  
+3. **Split Bill Transaction** is the least of all with **1376** transactions, **4,901,464** of volume, **1,323** senders and **572** receivers. This function is not preferred.
 
 ## 📌 Key Takeaways:  
 ✔️ Understanding the basics and uses of Python in exploring and extracting data.  

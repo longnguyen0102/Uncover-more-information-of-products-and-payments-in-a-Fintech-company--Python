@@ -92,7 +92,7 @@ Using all 3 tables of the dataset.
 
 ## ⚒️ Main Process
 
-## 1️⃣ EDA
+## 💽 EDA
 <details>
   <summary>💾 <em>Import libraries and dataset, copy dataset, and explore tables</em></summary>
   
@@ -262,13 +262,13 @@ Using all 3 tables of the dataset.
 
 ### Briefing of data frame:  
 
-#### Data frame ***df_payment_report***:  
+#### 📝 Data frame ***df_payment_report***:  
    1. **Structure:** The data frame has 5 columns (`report_month`, `payment_group`, `product_id`, `source_id`, `volume`) and 919 rows.  
    2. **Data quality:** There are no missing values and duplicated rows among columns.  
    3. **Identified issues:** `report_month` has string datatype, it can be changed to datetime for easy analysis in time point-of-view.  
    4. **Observations:** The percentage of unique values in each column is acceptable. No action needed. 
  
-  #### Data frame ***df_product***:  
+  #### 📝 Data frame ***df_product***:  
    1. **Structure:** The data frame has 3 columns (`product_id`, `category`, `team_own`) and 492 rows.  
    2. **Data quality:** There are no missing values and duplicated rows among columns.  
    3. **Unique values:**  
@@ -277,7 +277,7 @@ Using all 3 tables of the dataset.
      *   17 categories have total 492 products (~0.2%).  
    4. **Observations:** Data frame has a well structure. No interfere actions needed.
  
-  #### Data frame ***df_transactions***:  
+  #### 📝 Data frame ***df_transactions***:  
    1. **Structure:** The data frame has 10 columns and 1,324,002 rows.  
    2. **Data quality:** There are no missing values and duplicated rows among columns.  
       *   **Duplicates:** There are 28 duplicated rows, they need to be removed for the correct calculation.  
@@ -312,9 +312,10 @@ Using all 3 tables of the dataset.
 
 ### Purpose of merging 2 data frames:  
 Merging 2 data frames ***df_payment_report*** and ***df_product*** for further analysis in products, team performance. The purpose of this merge is to combine the payment volume data with detailed product information. This will help further analysis with richer information.
-## 2️⃣ Data wrangling
 
-### 1/ Top 3 product_ids with the highest volume.  
+## 📑 Data wrangling
+
+### 1️⃣ Top 3 product_ids with the highest volume.  
 <details>
   <summary><em>Code</em></summary>
  
@@ -331,7 +332,7 @@ Merging 2 data frames ***df_payment_report*** and ***df_product*** for further a
 2.  Follow up are **429** and **372** both contributing significantly with volumes around **14.6 billion** and **13.7 billion** respectively.  
 3.  **Concentration:** There is a very large gap between the top product and the runners-up, indicating that the company's transaction volume is heavily concentrated in a few key products.  
 
-### 2/ Given that 1 product_id is only owed by 1 team, are there any abnormal products against this rule?  
+### 2️⃣ Given that 1 product_id is only owed by 1 team, are there any abnormal products against this rule?  
 <details>
   <summary><em>Code</em></summary>
 
@@ -358,7 +359,7 @@ Merging 2 data frames ***df_payment_report*** and ***df_product*** for further a
 2.  **No Duplicated Ownership:** There are no products with a `team_own` count greater than 1. This means the rule that 'one product is owned by only one team' is technically followed for all identified products.
 3.  **Action:** We should investigate the metadata for products **3, 1976, and 10033** to ensure they are assigned to the correct teams, as they currently lack ownership information in our analysis.  
 
-### 3/ Find the team has had the lowest performance (lowest volume) since Q2.2023. Find the category that contributes the least to that team.
+### 3️⃣ Find the team has had the lowest performance (lowest volume) since Q2.2023. Find the category that contributes the least to that team.
 <details>
   <summary><em>Code</em></summary>
  
@@ -390,7 +391,7 @@ Merging 2 data frames ***df_payment_report*** and ***df_product*** for further a
 1.   Underperformance of APS: The **APS** team stands out as having the lowest overall payment volume (**51,141,753**) compared to other teams since Q2.2023. This is a critical area for investigation. Comparing to the ASD - the highest performing team - with total volume of **31.09 billion**.  
 2.   The **PXXXXXE** category is the weakest link, generating the lowest volume (**25,232,438**) compares to **21.3 billion** of **PXXXXXB**. This suggests that the products or services within this category might be struggling, or there might be issues with their marketing, user experience, or competitive positioning.  
 
-### 4/ Find the contribution of source_ids of refund transactions (payment_group = ‘refund’), what is the source_id with the highest contribution?  
+### 4️⃣ Find the contribution of source_ids of refund transactions (payment_group = ‘refund’), what is the source_id with the highest contribution?  
 <details>
   <summary><em>Code</em></summary>
  
@@ -410,7 +411,7 @@ Merging 2 data frames ***df_payment_report*** and ***df_product*** for further a
   *   Further checking on top 3 of source_id to identify the causes of refund: system error, payment error, etc.
   *   Compare with 'volume' to identify the percentage of refund in order to evaluate the risk and operating eficiency.
 
-### 5/ Define type of transactions `transaction_type` for each row, given:  
+### 5️⃣ Define type of transactions `transaction_type` for each row, given:  
 ### - transType = 2 & merchant_id = 1205: Bank Transfer Transaction  
 ### - transType = 2 & merchant_id = 2260: Withdraw Money Transaction  
 ### - transType = 2 & merchant_id = 2270: Top Up Money Transaction  
@@ -478,7 +479,7 @@ Merging 2 data frames ***df_payment_report*** and ***df_product*** for further a
 2. **Bank Transfer Transaction** and **Withdraw Money Transaction** are almost the same ration (**~2.86%** and **~2.54**). These numbers show the "green flag" from customers about the company.  
 3. When looking at 'total_volume' and 'count'columns, **Bank Transger Transaction** has the most average amount for each transaction. Second place is **Top Up Money Transaction**.  
 
-### 6/ Of each transaction type (excluding invalid transactions): find the number of transactions, volume, senders and receivers.  
+### 6️⃣ Of each transaction type (excluding invalid transactions): find the number of transactions, volume, senders and receivers.  
 <details>
   <summary><em>Code:</em></summary>
  

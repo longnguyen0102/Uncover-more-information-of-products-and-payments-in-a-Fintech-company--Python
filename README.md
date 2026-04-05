@@ -11,8 +11,9 @@ Tools Used: Python
 
 ## 📑 Table of Contents  
 1. [📌 Background & Overview](#-background--overview)  
-2. [📂 Dataset Description & Data Structure](#-dataset-description--data-structure)  
-3. [🔎 Final Conclusion & Recommendations](#-final-conclusion--recommendations)
+2. [📂 Dataset Description & Data Structure](#-dataset-description--data-structure)
+3. [⚒️ Main Process](#-main-process)
+4. [📌 Key Takeaways](#-key-takeaways)
 
 ---
 
@@ -90,7 +91,7 @@ Using all 3 tables of the dataset.
 
 ---
 
-## ⚒️ Main Process
+## ⚒️ Main Process  
 
 ## 💽 EDA
 <details>
@@ -504,7 +505,9 @@ Merging 2 data frames ***df_payment_report*** and ***df_product*** for further a
 2. The most number is **Payment Transaction** with **398,677** transcations. It has the total volume of **71,851,515,181**. However, everyone still use this transaction the most with **139,583** of senders and **113,298** of receivers.  
 3. **Split Bill Transaction** is the least of all with **1376** transactions, **4,901,464** of volume, **1,323** senders and **572** receivers. This function is not preferred.
 
-## 📌 Key Takeaways:  
+---
+
+## 📌 Key Takeaways  
 ✔️ Understanding the basics and uses of Python in exploring and extracting data.  
 ✔️ This project helps the company identify which products can be considered as potential key products in the future, and which ones should be re-evaluated due to high return rates.  
 ✔️ Data incompleteness negatively impacts the analysis of team performance as well as the sales and revenue evaluation of products.  

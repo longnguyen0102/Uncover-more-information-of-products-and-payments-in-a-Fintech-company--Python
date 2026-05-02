@@ -165,7 +165,7 @@ Using all 3 tables of the dataset.
   ## show all duplicated rows
   df_payment_report[df_payment_report.duplicated()]
   ```  
-  <img src="https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_payment_report_eda.png"/>
+  <img src="https://github.com/longnguyen0102/Uncover-more-information-of-products-and-payments-in-a-Fintech-company--Python/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_payment_report_eda.png"/>
 
   ## Understand about data type / data value and checking unique & missing values of *df_product*:  
    ```python
@@ -211,7 +211,7 @@ Using all 3 tables of the dataset.
   ## show all duplicated rows
   df_product[df_product.duplicated()]
   ```  
-  <img src="https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_product_eda.png"/>
+  <img src="https://github.com/longnguyen0102/Uncover-more-information-of-products-and-payments-in-a-Fintech-company--Python/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_product_eda.png"/>
 
   ## Understand about data type / data value and checking unique & missing values of *df_transactions*:  
   ```python
@@ -256,8 +256,8 @@ Using all 3 tables of the dataset.
   ## show all duplicated rows
   df_transactions[df_transactions.duplicated()]
   ```  
-  ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_transactions_eda_1.png)  
-  ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_transactions_eda_2.png)  
+  ![](https://github.com/longnguyen0102/Uncover-more-information-of-products-and-payments-in-a-Fintech-company--Python/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_transactions_eda_1.png)  
+  ![](https://github.com/longnguyen0102/Uncover-more-information-of-products-and-payments-in-a-Fintech-company--Python/blob/main/data_wrangling-fintech-python/python_data_wrangling_df_transactions_eda_2.png)  
   
 </details>
 
@@ -307,7 +307,7 @@ Using all 3 tables of the dataset.
   payment_enriched.info()
   ```
     
-  ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_create_df_payment_enriched.png)  
+  ![](https://github.com/longnguyen0102/Uncover-more-information-of-products-and-payments-in-a-Fintech-company--Python/blob/main/data_wrangling-fintech-python/python_data_wrangling_create_df_payment_enriched.png)  
 
 </details>  
 
@@ -327,7 +327,7 @@ Merging 2 data frames ***df_payment_report*** and ***df_product*** for further a
   ```
 </details>  
   
-![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_1_result.png)  
+![](https://github.com/longnguyen0102/Uncover-more-information-of-products-and-payments-in-a-Fintech-company--Python/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_1_result.png)  
 
 1.  **1976** is the clear leader, with a total volume exceeding **61.7 billion**. This suggests it is likely a core service or a highly popular utility within the e-wallet ecosystem.  
 2.  Follow up are **429** and **372** both contributing significantly with volumes around **14.6 billion** and **13.7 billion** respectively.  
@@ -352,9 +352,9 @@ Merging 2 data frames ***df_payment_report*** and ***df_product*** for further a
   ```
 </details>  
 
-![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_2_result_2.png)
+![](https://github.com/longnguyen0102/Uncover-more-information-of-products-and-payments-in-a-Fintech-company--Python/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_2_result_2.png)
 
-![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_2_result_1.png)
+![](https://github.com/longnguyen0102/Uncover-more-information-of-products-and-payments-in-a-Fintech-company--Python/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_2_result_1.png)
 
 1.  **Missing Mappings:** Products with id **3**, **1976**, and **10033** are owned by no team. This indicates these products are present in the `payment_report` but do not have a corresponding entry in the `product` lookup table (resulting in NaNs after the left join).  
 2.  **No Duplicated Ownership:** There are no products with a `team_own` count greater than 1. This means the rule that 'one product is owned by only one team' is technically followed for all identified products.
@@ -387,7 +387,7 @@ Merging 2 data frames ***df_payment_report*** and ***df_product*** for further a
   ```
 </details>  
   
-![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_3_result.png)  
+![](https://github.com/longnguyen0102/Uncover-more-information-of-products-and-payments-in-a-Fintech-company--Python/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_3_result.png)  
 
 1.   Underperformance of APS: The **APS** team stands out as having the lowest overall payment volume (**51,141,753**) compared to other teams since Q2.2023. This is a critical area for investigation. Comparing to the ASD - the highest performing team - with total volume of **31.09 billion**.  
 2.   The **PXXXXXE** category is the weakest link, generating the lowest volume (**25,232,438**) compares to **21.3 billion** of **PXXXXXB**. This suggests that the products or services within this category might be struggling, or there might be issues with their marketing, user experience, or competitive positioning.  
@@ -404,7 +404,7 @@ Merging 2 data frames ***df_payment_report*** and ***df_product*** for further a
   ```
 </details>  
   
-![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_4_result.png)
+![](https://github.com/longnguyen0102/Uncover-more-information-of-products-and-payments-in-a-Fintech-company--Python/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_4_result.png)
 
 1. **38** has the most volume (**36,527,454,759**) which is twice bigger than the second place (**39**) with **16,119,058,662**.  
 2. The volume of these 3 source_id has a big gap between them.  
@@ -454,7 +454,7 @@ Merging 2 data frames ***df_payment_report*** and ***df_product*** for further a
   ```
 </details>  
   
-![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_5_result_1.png)  
+![](https://github.com/longnguyen0102/Uncover-more-information-of-products-and-payments-in-a-Fintech-company--Python/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_5_result_1.png)  
 
 <details>
   <summary><em>Summary of types of transactions</em></summary>
@@ -474,7 +474,7 @@ Merging 2 data frames ***df_payment_report*** and ***df_product*** for further a
 
 </details>
 
-![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_5_result_2.png)
+![](https://github.com/longnguyen0102/Uncover-more-information-of-products-and-payments-in-a-Fintech-company--Python/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_5_result_2.png)
 
 1. **Invalid Transaction** has about **21.94%**, this means there might be an error during payment process or problems with data collecting process.  
 2. **Bank Transfer Transaction** and **Withdraw Money Transaction** are almost the same ration (**~2.86%** and **~2.54**). These numbers show the "green flag" from customers about the company.  
@@ -489,7 +489,7 @@ Merging 2 data frames ***df_payment_report*** and ***df_product*** for further a
   valid_transactions
   ```
   
-  ![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_6_result_1.png)  
+  ![](https://github.com/longnguyen0102/Uncover-more-information-of-products-and-payments-in-a-Fintech-company--Python/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_6_result_1.png)  
  
   ```python
   valid_transactions.groupby(by = 'transaction_type').agg(total_transactions=('transaction_id', 'nunique'),
@@ -499,7 +499,7 @@ Merging 2 data frames ***df_payment_report*** and ***df_product*** for further a
   ```
 </details>  
   
-![](https://github.com/longnguyen0102/photo/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_6_result_2.png)
+![](https://github.com/longnguyen0102/Uncover-more-information-of-products-and-payments-in-a-Fintech-company--Python/blob/main/data_wrangling-fintech-python/python_data_wrangling_query_6_result_2.png)
 
 1. **Top Up Money Transacton** has the most volume with **108,606,478,829** however it is on second place of unique senders (**110,409**) and receivers (**110,409**). This is the most important activity in an e-wallet company.  
 2. The most number is **Payment Transaction** with **398,677** transcations. It has the total volume of **71,851,515,181**. However, everyone still use this transaction the most with **139,583** of senders and **113,298** of receivers.  
